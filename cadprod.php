@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang = "pt-br">
 	<head>
-		<title>Vikings Taberna-Menu adm</title>
+		<title>Vikings Taberna-Cadastro de produtos</title>
 		<!-- Última versão CSS compilada e minificada -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -10,8 +10,8 @@
 
 		<!-- Última versão JavaScript compilada e minificada -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-		<link rel = "stylesheet" type = "text/css" href="css/logincss.css">
 		<meta charset = "utf-8">
+		<link rel = "stylesheet" type = "text/css" href="css/cadprod.css">
 	</head>
 	<body>
 		<?php
@@ -102,6 +102,37 @@
 			</div><!-- /.container-fluid -->
 		</nav>
 		
+		<div class = "container">
+			<form action = "cadprodbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
+				<h2 class = "form-login-heading">Cadastro de produtos</h2><br>
+				<label for = "usuario">Nome:</label>
+				<input type = "text" id = "nome" name = "nome" class = "form-control" placeholde = "nome" required autofocus><br>
+				
+				<label for = "senha"> Descrição:</label>
+				<input type = "text" id = "desc" name = "desc" class = "form-control" placeholde = "Descrição" required autofocus></br>
+				
+				<label for = "senha"> Unidade:</label>
+				<input type = "text" id = "un" name = "un" class = "form-control" placeholde = "un" required autofocus></br>
+				
+				<label for = "senha"> Preço:</label>
+				<input type = "number" id = "preco" name = "preco" class = "form-control" placeholde = "Preço" required autofocus></br>
+				
+				<button type = "submit" class = "btn btn-lg btn-primary btn-block"> Cadastrar </button>
+			</form>
+		</div>
+		<p class = "text-center">
+			<?php
+				if(isset($_SESSION['ok'])){
+					echo $_SESSION['ok'];
+					unset($_SESSION['ok']);
+				}
+				if(isset($_SESSION['errocad'])){
+					echo $_SESSION['errocad'];
+					unset($_SESSION['errocad']);
+				}
+			
+			?>
+		</p>
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		
