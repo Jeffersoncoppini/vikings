@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang = "pt-br">
 	<head>
-		<title>Vikings Taberna-Cadastro de produtos</title>
+		<title>Vikings Taberna-Cadastro de empresas</title>
 		<!-- Última versão CSS compilada e minificada -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -103,32 +103,60 @@
 		</nav>
 		
 		<div class = "container">
-			<form action = "cadprodbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
-				<h2 class = "form-login-heading">Cadastro de produtos</h2><br>
-				<label for = "nome">Nome:</label>
+			<form action = "inempbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
+				<h2 class = "form-login-heading">Cadastro de Empresas</h2><br>
+				
+				<label for = "cnpj">CNPJ:</label>
+				<input type = "text" id = "cnpj" name = "cnpj" class = "form-control" placeholde = "cnpj" required autofocus><br>
+				
+				<label for = "nome">Razão Social:</label>
 				<input type = "text" id = "nome" name = "nome" class = "form-control" placeholde = "nome" required autofocus><br>
 				
-				<label for = "desc"> Descrição:</label>
-				<input type = "text" id = "desc" name = "desc" class = "form-control" placeholde = "Descrição" required autofocus></br>
+				<label for = "fant"> Nome Fantasia:</label>
+				<input type = "text" id = "fant" name = "fant" class = "form-control" placeholde = "fant" autofocus></br>
 				
-				<label for = "un"> Unidade:</label>
-				<input type = "text" id = "un" name = "un" class = "form-control" placeholde = "un" required autofocus></br>
+				<label for = "ie"> Inscriçao Estadual:</label>
+				<input type = "text" id = "ie" name = "ie" class = "form-control" placeholde = "ie" autofocus></br>
 				
-				<label for = "preco"> Preço:</label>
-				<input type = "number" step = 0.01 id = "preco" name = "preco" class = "form-control" placeholde = "Preço" required autofocus></br>
+				<label for = "telefone"> Telefone:</label>
+				<input type = "tel" id = "tel" name = "tel" class = "form-control" placeholde = "tel" required autofocus></br>
+		
+				<label for = "email">E-mail:</label>
+				<input type = "mail" id = "email" name = "email" class = "form-control" placeholde = "email" autofocus><br>
+				
+				<label for = "rua">Rua:</label>
+				<input type = "text" id = "rua" name = "rua" class = "form-control" placeholde = "rua" required autofocus><br>
+				
+				<label for = "bairro">Bairro:</label>
+				<input type = "text" id = "bairro" name = "bairro" class = "form-control" placeholde = "bairro" required autofocus><br>
+				
+				<label for = "num">Número:</label>
+				<input type = "text" id = "num" name = "num" class = "form-control" placeholde = "num" required autofocus><br>
+				
+				<label for = "compl">Complemento:</label>
+				<input type = "text" id = "compl" name = "compl" class = "form-control" placeholde = "compl" autofocus><br>
+				
+				<label for = "cep">CEP:</label>
+				<input type = "text" id = "cep" name = "cep" class = "form-control" placeholde = "cep" autofocus><br>
+				
+				<label for = "cid">Cidade:</label>
+				<input type = "text" id = "cid" name = "cid" class = "form-control" placeholde = "cid" autofocus><br>
+				
+				<label for = "uf">UF:</label>
+				<input type = "text" id = "uf" name = "uf" class = "form-control" placeholde = "uf" autofocus><br>
 				
 				<button type = "submit" class = "btn btn-lg btn-primary btn-block"> Cadastrar </button>
 			</form>
 		</div>
 		<p class = "text-center">
 			<?php
-				if(isset($_SESSION['ok'])){
-					echo $_SESSION['ok'];
-					unset($_SESSION['ok']);
+				if(isset($_SESSION['okemp'])){
+					echo $_SESSION['okemp'];
+					unset($_SESSION['okemp']);
 				}
-				if(isset($_SESSION['errocad'])){
-					echo $_SESSION['errocad'];
-					unset($_SESSION['errocad']);
+				if(isset($_SESSION['erroemp'])){
+					echo $_SESSION['erroemp'];
+					unset($_SESSION['erroemp']);
 				}
 			
 			?>

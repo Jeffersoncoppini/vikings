@@ -8,9 +8,9 @@ $preco = $_POST["preco"];
 
 
 $bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
-$resultado = pg_query($bdcon,"INSERT INTO produto(nome,descricao,unidade,preco) values('$nome','$desc','$un','$preco')");
+$resultado = pg_query($bdcon,"INSERT INTO produto(nomeprod,descri,un,preco) values('$nome','$desc','$un','$preco')");
 
-if(resultado){
+if($resultado){
 	$_SESSION['ok'] = "Produto Cadastrado com sucesso!";
 	header("Location:cadprod.php");
 }

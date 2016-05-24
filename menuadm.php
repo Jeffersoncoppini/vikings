@@ -31,7 +31,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Vikings Taberna</a>
+					<a class="navbar-brand" href="menuadm.php">Vikings Taberna</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,56 +41,56 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Produtos <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="cadprod.php">Cadastrar...</a></li>
-								<li><a href="#">Alterar...</a></li>
+								<li><a href="altprod.php">Alterar...</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a href="#">Relatórios</a></li>
+								<li><a href="relprod.php">Relatórios</a></li>
 							</ul>
 						</li>
 						
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cardápio <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cardápio <span class="caret"></span></a>							
 							<ul class="dropdown-menu">
-								<li><a href="#">Alterar...</a></li>
+								<li><a href="altcar.php">Alterar...</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a href="#">Relatórios</a></li>
+								<li><a href="relcar.php">Relatórios</a></li>
 							</ul>
 						</li>
 						
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Promoções <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Incluir...</a></li>
-								<li><a href="#">Remover...</a></li>
+								<li><a href="inprom.php">Incluir...</a></li>
+								<li><a href="remprom.php">Remover...</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a href="#">Relatórios</a></li>
+								<li><a href="relprom.php">Relatórios</a></li>
 							</ul>
 						</li>
 						
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Agenda <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Cadastrar atrações...</a></li>
-								<li><a href="#">Alterar atrações...</a></li>
-								<li><a href="#">Remover atrações...</a></li>
-								<li><a href="#">Cadastrar eventos...</a></li>
-								<li><a href="#">Alterar eventos...</a></li>
-								<li><a href="#">Remover eventos...</a></li>
+								<li><a href="cadatrac.php">Cadastrar atrações...</a></li>
+								<li><a href="altatrac.php">Alterar atrações...</a></li>
+								<li><a href="rematrac.php">Remover atrações...</a></li>
+								<li><a href="cadevento.php">Cadastrar eventos...</a></li>
+								<li><a href="altevento.php">Alterar eventos...</a></li>
+								<li><a href="remevento.php">Remover eventos...</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a href="#">Relatórios</a></li>
+								<li><a href="relevento.php">Relatórios</a></li>
 							</ul>
 						</li>
 						
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Anuncios <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Incluir anuncios...</a></li>
-								<li><a href="#">Alterar anuncios...</a></li>
-								<li><a href="#">Remover anuncios...</a></li>
-								<li><a href="#">Incluir empresas...</a></li>
-								<li><a href="#">Alterar empresas...</a></li>
-								<li><a href="#">Remover empresas...</a></li>
+								<li><a href="inanun.php">Incluir anuncios...</a></li>
+								<li><a href="altanun.php">Alterar anuncios...</a></li>
+								<li><a href="remanun.php">Remover anuncios...</a></li>
+								<li><a href="inemp.php">Incluir empresas...</a></li>
+								<li><a href="altemp.php">Alterar empresas...</a></li>
+								<li><a href="rememp.php">Remover empresas...</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a href="#">Relatórios</a></li>
+								<li><a href="relemp.php">Relatórios</a></li>
 							</ul>
 						</li>
 					</ul>

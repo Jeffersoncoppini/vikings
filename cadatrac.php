@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang = "pt-br">
 	<head>
-		<title>Vikings Taberna-Cadastro de produtos</title>
+		<title>Vikings Taberna-Cadastro de atrações</title>
 		<!-- Última versão CSS compilada e minificada -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -103,32 +103,32 @@
 		</nav>
 		
 		<div class = "container">
-			<form action = "cadprodbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
-				<h2 class = "form-login-heading">Cadastro de produtos</h2><br>
+			<form action = "cadatracbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
+				<h2 class = "form-login-heading">Cadastro de Atrações</h2><br>
 				<label for = "nome">Nome:</label>
 				<input type = "text" id = "nome" name = "nome" class = "form-control" placeholde = "nome" required autofocus><br>
 				
-				<label for = "desc"> Descrição:</label>
-				<input type = "text" id = "desc" name = "desc" class = "form-control" placeholde = "Descrição" required autofocus></br>
+				<label for = "email"> E-mail:</label>
+				<input type = "mail" id = "email" name = "email" class = "form-control" placeholde = "email" autofocus></br>
 				
-				<label for = "un"> Unidade:</label>
-				<input type = "text" id = "un" name = "un" class = "form-control" placeholde = "un" required autofocus></br>
-				
-				<label for = "preco"> Preço:</label>
-				<input type = "number" step = 0.01 id = "preco" name = "preco" class = "form-control" placeholde = "Preço" required autofocus></br>
+				<label for = "telefone"> Telefone:</label>
+				<input type = "tel" id = "tel" name = "tel" class = "form-control" placeholde = "tel" required autofocus></br>
+		
+				<label for = "tipo">Tipo:</label>
+				<input type = "text" id = "tipo" name = "tipo" class = "form-control" placeholde = "tipo" required autofocus><br>
 				
 				<button type = "submit" class = "btn btn-lg btn-primary btn-block"> Cadastrar </button>
 			</form>
 		</div>
 		<p class = "text-center">
 			<?php
-				if(isset($_SESSION['ok'])){
-					echo $_SESSION['ok'];
-					unset($_SESSION['ok']);
+				if(isset($_SESSION['okatrac'])){
+					echo $_SESSION['okatrac'];
+					unset($_SESSION['okatrac']);
 				}
-				if(isset($_SESSION['errocad'])){
-					echo $_SESSION['errocad'];
-					unset($_SESSION['errocad']);
+				if(isset($_SESSION['errocadatrac'])){
+					echo $_SESSION['errocadatrac'];
+					unset($_SESSION['errocadatrac']);
 				}
 			
 			?>
