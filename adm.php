@@ -21,7 +21,7 @@
 		
 		
 
-		<nav class="navbar navbar-default">
+		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
@@ -61,9 +61,10 @@
 				<label for = "senha"> Senha:</label>
 				<input type = "password" id = "senha" name = "senha" class = "form-control" placeholde = "senha" required autofocus></br>
 				
-				<button type = "submit" class = "btn btn-lg btn-primary btn-block"> Entrar </button>
+				<button type = "submit" class = "btn btn-block btn-default"> Entrar </button>
 			</form>
-			<p class = "text-center">
+			<br><br><br><br><br><br>
+			<p class = "text-center text-danger">
 				<?php
 					if(isset($_SESSION['loginErro'])){
 						echo $_SESSION['loginErro'];
@@ -72,6 +73,19 @@
 				?>
 			</p>
 		</div>
+		<footer> <!-- Aqui e a area do footer -->
+			<div class="container">
+				<div class="copyright">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<p>&copy; Todos os direitos reservados.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</body>

@@ -14,7 +14,7 @@
 		<link rel = "stylesheet" type = "text/css" href="css/index.css">
 	</head>
 	<body>
-		<nav class="navbar navbar-default">
+		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
@@ -44,44 +44,60 @@
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
-		<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-    <li data-target="#myCarousel" data-slide-to="3"></li>
-  </ol>
+		<div class = "container">
+			<section id = "sliderhome">
+				<div id="myCarousel" class="carousel slide" data-ride="carousel">
+					<!-- Indicators -->
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#myCarousel" data-slide-to="1"></li>
+						<li data-target="#myCarousel" data-slide-to="2"></li>
+						<li data-target="#myCarousel" data-slide-to="3"></li>
+					</ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img src="imagens/ModeloConceitual.jpg" alt="jeffe">
-    </div>
-	
-    <div class="item">
-      <img src="imagens/jeffe.jpg" alt="jeffe">
-    </div>
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner">
+						<div class="item active"><img src = "imagens/votacao.jpg"></div>
+						<div class="item"><img src = "imagens/reserva.jpg"></div>
+						<div class="item"><img src = "imagens/votacao.jpg"></div>
+						<div class="item"><img src = "imagens/reserva.jpg"></div>
+					</div>
 
-    <div class="item">
-      <img src="imagens/jeffe.jpg" alt="jeffe">
-    </div>
-
-    <div class="item">
-      <img src="imagens/jeffe.jpg" alt="jeffe">
-    </div>
-  </div>
-
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+					<!-- Left and right controls -->
+					<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+					<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+				</div>
+			</section>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-6 col-md-3">
+				<a href="#" class="thumbnail">
+					<img src="imagens/reserva.jpg" alt="Reserva">
+				</a>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-6 col-md-3">
+				<a href="#" class="thumbnail">
+					<img src="imagens/votacao.jpg" alt="Reserva">
+				</a>
+			</div>
+		</div>
+		<footer> <!-- Aqui e a area do footer -->
+			<div class="container">
+				<div class="copyright">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<p>&copy; Todos os direitos reservados.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</body>
