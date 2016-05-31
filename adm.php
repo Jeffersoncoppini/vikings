@@ -56,10 +56,10 @@
 			<form action = "entradas.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Acesso administrador</h2><br>
 				<label for = "usuario">Usuário:</label>
-				<input type = "text" id = "usuario" name = "usuario" class = "form-control" placeholde = "usuario" required autofocus><br>
+				<input type = "text" id = "usuario" name = "usuario" class = "form-control" placeholder = "usuario" required autofocus><br>
 				
 				<label for = "senha"> Senha:</label>
-				<input type = "password" id = "senha" name = "senha" class = "form-control" placeholde = "senha" required autofocus></br>
+				<input type = "password" id = "senha" name = "senha" class = "form-control" placeholder = "senha" required autofocus></br>
 				
 				<button type = "submit" class = "btn btn-block btn-default"> Entrar </button>
 			</form>
