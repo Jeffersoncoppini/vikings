@@ -108,7 +108,7 @@
 				<label for = "nome">Busca:</label>
 				<input type = "text" id = "nome" name = "nome" class = "form-control" placeholde = "nome" required autofocus><br>
 				
-				<button type = "submit" class = "btn btn-lg btn-primary btn-block"> Cadastrar </button>
+				<button type = "submit" class = "btn btn-lg btn-primary btn-block"> Buscar </button>
 				
 				<br><br><p class = "text-center text-danger">
 					<?php
@@ -122,8 +122,59 @@
 				
 				
 			</form>
+			
+			<?php
+				if(isset($_SESSION['existe'])){
+					echo'<form action = "altprodbanco2.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
+					$busca = $_SESSION['existe'];
+					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					$resultado = pg_query($bdcon,"SELECT * FROM produto where nomeprod like'".$busca."%'");
+					while($aux2 = pg_fetch_assoc($resultado)){
+						echo '<label class = "text-center"> '.$aux2["codproduto"].' - '.$aux2["nomeprod"].' <input type="radio" name="prod" id="emp" value="'.$aux2["codproduto"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
+					}
+					unset($_SESSION['existe']);
+					echo'<button type = "submit" class = "btn btn-lg btn-primary btn-block"> Alterar</button>';
+					echo'</form>';
+				}
+				if(isset($_SESSION['existe2'])){
+					$busca = $_SESSION['existe2'];
+					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					$resultado = pg_query($bdcon,"SELECT * from produto where codproduto = '$busca'");
+					$aux2 = pg_fetch_assoc($resultado);
+					echo'<form action = "altprodbanc3.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
+					echo'<h2 class = "form-login-heading">Alteracao de produtos</h2><br>
+					<label for = "nome">Nome:</label>
+					<input type = "text" id = "nome" value = "'.$aux2["nomeprod"].'" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
+				
+					<label for = "desc"> Descrição:</label>
+					<input type = "text" id = "desc" value = "'.$aux2["descri"].'" name = "desc" class = "form-control" placeholder = "Descrição" required autofocus></br>
+				
+					<label for = "un"> Unidade:</label>
+					<input type = "text" id = "un" value = "'.$aux2["un"].'" name = "un" class = "form-control" placeholder = "un" required autofocus></br>
+				
+					<label for = "preco"> Preço:</label>
+					<input type = "number" step = 0.01 id = "preco" value = "'.$aux2["preco"].'" name = "preco" class = "form-control" placeholder = "Preço" required autofocus></br>
+				
+					<button type = "submit" class = "btn btn-lg btn-primary btn-block"> Alterar </button>
+					
+					</form>';
+					
+				}
+			?>
 		</div>
-		
+		<p class = "text-center">
+			<?php
+				if(isset($_SESSION['erroaltprod'])){
+					echo $_SESSION['erroaltprod'];
+					unset($_SESSION['erroaltprod']);
+				}
+				if(isset($_SESSION['aceptaltprod'])){
+					echo $_SESSION['aceptaltprod'];
+					unset($_SESSION['aceptaltprod']);
+				}
+			
+			?>
+		</p>
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		
