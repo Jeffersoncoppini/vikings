@@ -101,32 +101,29 @@
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
-		<?php
-		echo'
+		
 		<div class = "container">
-			<form action = "altprodbanco.php" method = "POST" accept-charset = "utf-8"class = "form-login">
+			<form action = "altprodbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Alteração de produtos</h2><br>
-				<label for = "bnome">Busca:</label>
-				<input type = "text" id = "bnome" name = "bnome" class = "form-control" placeholder = "nome" required autofocus><br>
+				<label for = "nome">Busca:</label>
+				<input type = "text" id = "nome" name = "nome" class = "form-control" placeholde = "nome" required autofocus><br>
 				
-				<button type = "submit" class = "btn btn-lg btn-primary btn-block"> Buscar </button>
+				<button type = "submit" class = "btn btn-lg btn-primary btn-block"> Cadastrar </button>
 				
-			</form>';
-		?>	
-		</div>
-		<p class = "text-center">
-			<?php
-				if(isset($_SESSION['ok'])){
-					echo $_SESSION['ok'];
-					unset($_SESSION['ok']);
-				}
-				if(isset($_SESSION['errocad'])){
-					echo $_SESSION['errocad'];
-					unset($_SESSION['errocad']);
-				}
+				<br><br><p class = "text-center text-danger">
+					<?php
+						if(isset($_SESSION['erro'])){
+						echo $_SESSION['erro'];
+						unset($_SESSION['erro']);
+						}
 			
-			?>
-		</p>
+					?>
+				</p>
+				
+				
+			</form>
+		</div>
+		
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		
