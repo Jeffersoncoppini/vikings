@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang = "pt-br">
 	<head>
-		<title>Vikings Taberna-Remover de Promoções</title>
+		<title>Vikings Taberna-Promoções-Relatório</title>
 		<!-- Última versão CSS compilada e minificada -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -103,26 +103,25 @@
 		</nav>
 		
 		<div class = "container">
-			<form action = "remprombanco.php" method = "POST" accept-charset = "utf-8" class = "form-login" enctype ="multipart/form-data">
-				<?php
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
-					$resultado = pg_query($bdcon,"SELECT * FROM promocao");
-					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["nomepromo"].' - '.$aux2["datainicio"].' <input type="radio" name="promo" id="promo" value="'.$aux2	["nomepromo"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
-					}
-				?>
-				<button type = "submit" class = "btn btn-lg btn-primary btn-block"> Remover</button>
+			<form action = "relprombanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
+				<h2 class = "form-login-heading">Produtos - Reletórios</h2><br>
+				
+				<label class = "text-center"> Relatório de todas as promoções
+				<input type="radio" name="prom" id="prom" value="todosprom" class = "form-control" autofocus><br>
+				</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<button type = "submit" class = "btn btn-lg btn-primary btn-block"> Gerar </button>
+				
 			</form>
 		</div>
 		<p class = "text-center">
 			<?php
-				if(isset($_SESSION['okprom'])){
-					echo $_SESSION['okprom'];
-					unset($_SESSION['okprom']);
+				if(isset($_SESSION['erro'])){
+					echo $_SESSION['erro'];
+					unset($_SESSION['erro']);
 				}
-				if(isset($_SESSION['erroprom'])){
-					echo $_SESSION['erroprom'];
-					unset($_SESSION['erroprom']);
+				if(isset($_SESSION['aceptaltprod'])){
+					echo $_SESSION['aceptaltprod'];
+					unset($_SESSION['aceptaltprod']);
 				}
 			
 			?>
