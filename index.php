@@ -32,7 +32,7 @@
 					<ul class="nav navbar-nav">
 						<li class="active"></li>
 						<li><a href="index.php">Home</a></li>
-						<li><a href="#">Cardápio</a></li>
+						<li><a href="cardapio.php">Cardápio</a></li>
 						<li><a href="#">Promoções</a></li>
 						<li><a href="#">Reservas</a></li>
 						<li><a href="#">Eventos</a></li>
