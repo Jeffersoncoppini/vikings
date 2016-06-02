@@ -16,5 +16,5 @@ if($aux == 0){
 else{
 	$_SESSION['existe'] = $busca;
 	header("Location:altatrac.php");
-	}
+}
 ?>
