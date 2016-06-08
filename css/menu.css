@@ -1,0 +1,39 @@
+.inverse-dropdown{
+  background-color: #222;
+  border-color: #080808;
+  &>li>a{
+    color: #999;
+    &:hover{
+      color: #fff;
+      background-color: #000;
+    }
+  }
+}
+.inverse-dropdown li a{
+	color: #9d9d9d;
+}
+
+.inverse-dropdown li a:hover{
+	color: #ffffff;
+	background: inherit;
+}
+
+body{
+	padding-top: 40 px;
+	padding-bottom: 40px;
+	background-color:#000000;
+	padding:20px;
+}
+
+.form-login{
+	max-width: 350px;
+}
+.form-login .btn{
+	max-width: 110px;
+	max-height:50px;
+	padding:15px;
+	margin: 0 auto;
+}
+h2{
+text-align:center;
+}
