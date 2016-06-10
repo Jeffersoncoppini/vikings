@@ -11,7 +11,7 @@
 		<!-- Última versão JavaScript compilada e minificada -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 		<meta charset = "utf-8">
-		<link rel = "stylesheet" type = "text/css" href="css/cadprod.css">
+		<link rel = "stylesheet" type = "text/css" href="css/menu.css">
 	</head>
 	<body>
 		<?php
@@ -21,7 +21,7 @@
 				header("Location: adm.php");
 			}
 		?>
-		<nav class="navbar navbar-default">
+		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
@@ -39,7 +39,7 @@
 					<ul class="nav navbar-nav">
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Produtos <span class="caret"></span></a>
-							<ul class="dropdown-menu">
+							<ul class="dropdown-menu inverse-dropdown">
 								<li><a href="cadprod.php">Cadastrar...</a></li>
 								<li><a href="altprod.php">Alterar...</a></li>
 								<li role="separator" class="divider"></li>
@@ -48,17 +48,8 @@
 						</li>
 						
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cardápio <span class="caret"></span></a>							
-							<ul class="dropdown-menu">
-								<li><a href="altcar.php">Alterar...</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="relcar.php">Relatórios</a></li>
-							</ul>
-						</li>
-						
-						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Promoções <span class="caret"></span></a>
-							<ul class="dropdown-menu">
+							<ul class="dropdown-menu inverse-dropdown">
 								<li><a href="inprom.php">Incluir...</a></li>
 								<li><a href="remprom.php">Remover...</a></li>
 								<li role="separator" class="divider"></li>
@@ -68,7 +59,7 @@
 						
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Agenda <span class="caret"></span></a>
-							<ul class="dropdown-menu">
+							<ul class="dropdown-menu inverse-dropdown">
 								<li><a href="cadatrac.php">Cadastrar atrações...</a></li>
 								<li><a href="altatrac.php">Alterar atrações...</a></li>
 								<li><a href="rematrac.php">Remover atrações...</a></li>
@@ -82,7 +73,7 @@
 						
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Anuncios <span class="caret"></span></a>
-							<ul class="dropdown-menu">
+							<ul class="dropdown-menu inverse-dropdown">
 								<li><a href="inanun.php">Incluir anuncios...</a></li>
 								<li><a href="altanun.php">Alterar anuncios...</a></li>
 								<li><a href="remanun.php">Remover anuncios...</a></li>
@@ -95,7 +86,13 @@
 						</li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Perfil</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Perfil <span class="caret"></span></a>
+							<ul class="dropdown-menu inverse-dropdown">
+								<li><a href="altperfil.php">Alterar perfil</a></li>
+								<li><a href="cadusu.php">Criar usuário</a></li>
+							</ul>
+						</li>
 						<li><a href="adm.php">Sair</a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
@@ -108,13 +105,11 @@
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 					$resultado = pg_query($bdcon,"SELECT * FROM promocao");
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["nomepromo"].' - '.$aux2["datainicio"].' <input type="radio" name="promo" id="promo" value="'.$aux2	["nomepromo"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
+						echo '<label class = "text-center"> '.$aux2["nomepromo"].' <input type="radio" name="promo" id="promo" value="'.$aux2	["nomepromo"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
 					}
 				?>
-				<button type = "submit" class = "btn btn-lg btn-primary btn-block"> Remover</button>
-			</form>
-		</div>
-		<p class = "text-center">
+				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Remover</button><br><br><br>
+				<p class = "text-center text-danger">
 			<?php
 				if(isset($_SESSION['okprom'])){
 					echo $_SESSION['okprom'];
@@ -126,7 +121,10 @@
 				}
 			
 			?>
-		</p>
+		</p> 	
+			</form>
+		</div>
+		
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		

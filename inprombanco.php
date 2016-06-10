@@ -13,15 +13,15 @@ if (!move_uploaded_file($_FILES['imagem']['tmp_name'], $imagem)) {
 $nome = $_POST["nome"];
 $datai = $_POST["datai"];
 $dataf = $_POST["dataf"];
-$desc = $_POST["descr"];
+$desc = $_POST["des"];
 $precopromo = $_POST["precopromo"];
 $prod = $_POST["prod"];
 
 $bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
-$resultado = pg_query($bdcon,"INSERT INTO promocao(nomepromo,datainicio,descri,precopromo,imagem,datafim) values('$nome','$datai','$desc','$precopromo','$imagem','$dataf')");
+$resultado = pg_query($bdcon,"INSERT INTO promocao(nomepromo,datainicio,descricao,precopromo,imagem,datafim,pgini) values('$nome','$datai','$desc','$precopromo','$imagem','$dataf', 0)");
 
 foreach($prod as $valor){
-	$resultadob = pg_query($bdcon,"INSERT INTO promocao_produto(nomepromo,datainicio,codproduto) values('$nome','$datai','$valor')");
+	$resultadob = pg_query($bdcon,"INSERT INTO promocao_produto(nomepromo,codproduto) values('$nome','$valor')");
 }
 
 if($resultado){

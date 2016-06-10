@@ -18,10 +18,10 @@ $data = $_POST["data"];
 $atrac = $_POST["atrac"];
 
 $bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
-$resultado = pg_query($bdcon,"INSERT INTO evento(data,nomeevento,imagem,hora) values('$data','$nome','$imagem','$hora')");
+$resultado = pg_query($bdcon,"INSERT INTO evento(dataevento,nomeevento,imagem,hora,pgini) values('$data','$nome','$imagem','$hora',0)");
 
 foreach($atrac as $valor){
-	$resultadob = pg_query($bdcon,"INSERT INTO evento_atracao(data,nomeatrac) values('$data','$valor')");
+	$resultadob = pg_query($bdcon,"INSERT INTO evento_atracao(dataevento,nomeatracao) values('$data','$valor')");
 }
 
 if($resultado){

@@ -10,8 +10,8 @@ $valor = $_SESSION['existe2'];
 unset($_SESSION['existe2']);
 echo $valor;
 $bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
-$resultado = pg_query($bdcon,"UPDATE atracao SET nomeatrac = '$nome', email = '$email', telefone = '$tel', tipo = '$tipo' where nomeatrac = '$valor'");
-$resultadob = pg_query($bdcon,"UPDATE evento_atracao SET nomeatrac = '$nome' where nomeatrac = '$valor'");
+$resultado = pg_query($bdcon,"UPDATE atracao SET nomeatracao = '$nome', email = '$email', telefone = '$tel', tipo = '$tipo' where nomeatracao = '$valor'");
+$resultadob = pg_query($bdcon,"UPDATE evento_atracao SET nomeatracao = '$nome' where nomeatracao = '$valor'");
 if(!$resultado){
 	$_SESSION['erroaltprod'] = "Erro na alteração!";
 	header("Location:altatrac.php");

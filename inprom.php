@@ -89,8 +89,8 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Perfil <span class="caret"></span></a>
 							<ul class="dropdown-menu inverse-dropdown">
-								<li><a href="inanun.php">Alterar perfil</a></li>
-								<li><a href="altanun.php">Criar usuário</a></li>
+								<li><a href="altperfil.php">Alterar perfil</a></li>
+								<li><a href="cadusu.php">Criar usuário</a></li>
 							</ul>
 						</li>
 						<li><a href="adm.php">Sair</a></li>
@@ -106,7 +106,7 @@
 				<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
 				
 				
-				<input type = "text" id = "desc" name = "desc" class = "form-control" placeholder = "descrição" required autofocus><br>
+				<input type = "text" id = "desc" name = "desc" class = "form-control" placeholder = "descrição" autofocus><br>
 				
 				<input type = "number" step = 0.01 id = "precopromo" name = "precopromo" class = "form-control" placeholder = "preço" required autofocus></br>
 				<br><br><br>
@@ -124,27 +124,29 @@
 				
 				<?php
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
-					$resultado = pg_query($bdcon,"SELECT produto.nomeprod,produto.codproduto FROM produto");
+					$resultado = pg_query($bdcon,"SELECT produto.nome,produto.codproduto FROM produto");
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["nomeprod"].' <input type="checkbox" name="prod[]" id="prod" value="'.$aux2["codproduto"].'" class = "form-control" placeholde = "prod" autofocus><br></label><br>';
+						echo '<label class = "text-center"> '.$aux2["nome"].' <input type="checkbox" name="prod[]" id="prod" value="'.$aux2["codproduto"].'" class = "form-control" placeholde = "prod" autofocus></label>&nbsp;&nbsp;';
 					}	
 				?>
-				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Cadastrar</button>
+				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Cadastrar</button><br><br><br>
+				
+				<p class = "text-center text-danger">
+					<?php
+						if(isset($_SESSION['okprom'])){
+							echo $_SESSION['okprom'];
+							unset($_SESSION['okprom']);
+						}
+						if(isset($_SESSION['erroprom'])){
+							echo $_SESSION['erroprom'];
+							unset($_SESSION['erroprom']);
+						}
+			
+					?>
+				</p>
 			</form>
 		</div>
-		<p class = "text-center">
-			<?php
-				if(isset($_SESSION['okprom'])){
-					echo $_SESSION['okprom'];
-					unset($_SESSION['okprom']);
-				}
-				if(isset($_SESSION['erroprom'])){
-					echo $_SESSION['erroprom'];
-					unset($_SESSION['erroprom']);
-				}
-			
-			?>
-		</p>
+
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		

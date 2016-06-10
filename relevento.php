@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang = "pt-br">
 	<head>
-		<title>Vikings Taberna-Alteração de produtos</title>
+		<title>Vikings Taberna-Evento-Relatório</title>
 		<!-- Última versão CSS compilada e minificada -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -89,8 +89,8 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Perfil <span class="caret"></span></a>
 							<ul class="dropdown-menu inverse-dropdown">
-								<li><a href="alrperfil.php">Alterar perfil</a></li>
-								<li><a href="cadusu.php">Criar usuário</a></li>
+								<li><a href="altperfil.php">Alterar perfil</a></li>
+								<li><a href="cadusuario.php">Criar usuário</a></li>
 							</ul>
 						</li>
 						<li><a href="adm.php">Sair</a></li>
@@ -100,26 +100,21 @@
 		</nav>
 		
 		<div class = "container">
-			<form action = "altprodbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
-				<h2 class = "form-login-heading">Alteração de produtos</h2><br>
-				<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
+			<form action = "releventobanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
+				<h2 class = "form-login-heading">Eventos - Reletórios</h2><br>
 				
-				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Buscar </button>
+				<label class = "text-center"> Relatório de todos os eventos
+				<input type="radio" name="eventos" id="eventos" value="todoseventos" class = "form-control" autofocus><br>
+				</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Gerar </button>
 				
-				<br><br><p class = "text-center text-danger">
-					<?php
-						if(isset($_SESSION['erro'])){
-						echo $_SESSION['erro'];
-						unset($_SESSION['erro']);
-						}
-			
-					?>
-				</p>
-				<p class = "text-center text-danger">
+			</form>
+		</div>
+		<p class = "text-center">
 			<?php
-				if(isset($_SESSION['erroaltprod'])){
-					echo $_SESSION['erroaltprod'];
-					unset($_SESSION['erroaltprod']);
+				if(isset($_SESSION['erro'])){
+					echo $_SESSION['erro'];
+					unset($_SESSION['erro']);
 				}
 				if(isset($_SESSION['aceptaltprod'])){
 					echo $_SESSION['aceptaltprod'];
@@ -128,48 +123,6 @@
 			
 			?>
 		</p>
-				
-				
-			</form>
-			
-			<?php
-				if(isset($_SESSION['existe'])){
-					echo'<form action = "altprodbanco2.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
-					$busca = $_SESSION['existe'];
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
-					$resultado = pg_query($bdcon,"SELECT * FROM produto where nome like'".$busca."%'");
-					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["codproduto"].' - '.$aux2["nome"].' <input type="radio" name="prod" id="emp" value="'.$aux2["codproduto"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
-					}
-					unset($_SESSION['existe']);
-					echo'<button type = "submit" class = "btn btn-lg btn-default btn-block"> Alterar</button>';
-					echo'</form>';
-				}
-				if(isset($_SESSION['existe2'])){
-					$busca = $_SESSION['existe2'];
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
-					$resultado = pg_query($bdcon,"SELECT * from produto where codproduto = '$busca'");
-					$aux2 = pg_fetch_assoc($resultado);
-					echo'<form action = "altprodbanc3.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
-					echo'<h2 class = "form-login-heading">Alteracao de produtos</h2><br>
-					<input type = "text" id = "nome" value = "'.$aux2["nome"].'" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
-				
-					<input type = "text" id = "desc" value = "'.$aux2["descricao"].'" name = "desc" class = "form-control" placeholder = "Descrição" autofocus></br>
-				
-					<input type = "text" id = "un" value = "'.$aux2["un"].'" name = "un" class = "form-control" placeholder = "un" required autofocus></br>
-				
-					<input type = "number" step = 0.01 id = "preco" value = "'.$aux2["preco"].'" name = "preco" class = "form-control" placeholder = "Preço" required autofocus></br>
-					
-					<input type = "text" id = "tipo" value = "'.$aux2["tipo"].'" name = "tipo" class = "form-control" placeholder = "tipo" required autofocus><br>
-				
-					
-					<button type = "submit" class = "btn btn-lg btn-default btn-block"> Alterar </button>
-					
-					</form>';
-					
-				}
-			?>
-		</div>
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		

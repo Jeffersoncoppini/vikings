@@ -89,8 +89,8 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Perfil <span class="caret"></span></a>
 							<ul class="dropdown-menu inverse-dropdown">
-								<li><a href="inanun.php">Alterar perfil</a></li>
-								<li><a href="altanun.php">Criar usuário</a></li>
+								<li><a href="altperfil.php">Alterar perfil</a></li>
+								<li><a href="cadusu.php">Criar usuário</a></li>
 							</ul>
 						</li>
 						<li><a href="adm.php">Sair</a></li>
@@ -102,19 +102,18 @@
 		<div class = "container">
 			<form action = "cadprodbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Cadastro de produtos</h2><br>
-				<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
+				<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "Nome" required autofocus><br>
 				
-				<input type = "text" id = "desc" name = "desc" class = "form-control" placeholder = "Descrição" required autofocus></br>
+				<input type = "text" id = "desc" name = "desc" class = "form-control" placeholder = "Descrição" autofocus></br>
 				
-				<input type = "text" id = "un" name = "un" class = "form-control" placeholder = "un" required autofocus></br>
+				<input type = "text" id = "un" name = "un" class = "form-control" placeholder = "Un" required autofocus></br>
 				
 				<input type = "number" step = 0.01 id = "preco" name = "preco" class = "form-control" placeholder = "Preço" required autofocus></br>
 				
-				<input type = "text" id = "tipo" name = "tipo" class = "form-control" placeholder = "tipo" required autofocus></br>
-				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Cadastrar </button>
-			</form>
-		</div>
-		<p class = "text-center">
+				<input type = "text" id = "tipo" name = "tipo" class = "form-control" placeholder = "Tipo" required autofocus></br>
+				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Cadastrar </button><br><br><br>
+				
+				<p class = "text-center text-danger">
 			<?php
 				if(isset($_SESSION['ok'])){
 					echo $_SESSION['ok'];
@@ -127,6 +126,9 @@
 			
 			?>
 		</p>
+			</form>
+		</div>
+		
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		
