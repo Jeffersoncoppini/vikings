@@ -17,7 +17,7 @@ $cid = $_POST["cid"];
 $uf = $_POST["uf"];
 
 $bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
-$resultado = pg_query($bdcon,"INSERT INTO empresa(cnpj,rsocial,nomefant,ie,telefone,email,rua,bairro,num,compl,cep,cidade,uf) values('$cnpj','$nome','$fant','$ie','$tel','$email','$rua','$bairro','$num','$compl','$cep','$cid','$uf')");
+$resultado = pg_query($bdcon,"INSERT INTO empresa(cnpj,rsocial,nomefant,ie,telefone,email,rua,bairro,numero,complemento,cep,cidade,uf) values('$cnpj','$nome','$fant','$ie','$tel','$email','$rua','$bairro','$num','$compl','$cep','$cid','$uf')");
 
 foreach($atrac as $valor){
 	$resultadob = pg_query($bdcon,"INSERT INTO evento_atracao(data,nomeatrac) values('$data','$valor')");

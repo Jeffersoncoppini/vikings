@@ -19,9 +19,13 @@ $atrac = $_POST["atrac"];
 
 $bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 $resultado = pg_query($bdcon,"INSERT INTO evento(dataevento,nomeevento,imagem,hora,pgini) values('$data','$nome','$imagem','$hora',0)");
+$resultadob = pg_query($bdcon,"SELECT max(idevento) FROM evento");
+$aux = pg_fetch_assoc($resultadob);
+$aux2 = $aux["max"];
+
 
 foreach($atrac as $valor){
-	$resultadob = pg_query($bdcon,"INSERT INTO evento_atracao(dataevento,nomeatracao) values('$data','$valor')");
+	$resultadob = pg_query($bdcon,"INSERT INTO evento_atracao(idevento,idatracao) values('$aux2','$valor')");
 }
 
 if($resultado){

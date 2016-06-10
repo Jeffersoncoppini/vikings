@@ -117,9 +117,9 @@
 				
 				<?php
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
-					$resultado = pg_query($bdcon,"SELECT atracao.nomeatracao FROM atracao");
+					$resultado = pg_query($bdcon,"SELECT * FROM atracao");
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["nomeatracao"].' <input type="checkbox" name="atrac[]" id="atrac" value="'.$aux2["nomeatracao"].'" class = "form-control" placeholde = "atrac" autofocus><br></label><br>';
+						echo '<label class = "text-center"> '.$aux2["nomeatracao"].' <input type="checkbox" name="atrac[]" id="atrac" value="'.$aux2["idatracao"].'" class = "form-control" placeholde = "atrac" autofocus><br></label><br>';
 					}	
 				?>
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Cadastrar</button><br><br><br>

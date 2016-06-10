@@ -89,8 +89,8 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Perfil <span class="caret"></span></a>
 							<ul class="dropdown-menu inverse-dropdown">
-								<li><a href="inanun.php">Alterar perfil</a></li>
-								<li><a href="altanun.php">Criar usuário</a></li>
+								<li><a href="altperfil.php">Alterar perfil</a></li>
+								<li><a href="cadusu.php">Criar usuário</a></li>
 							</ul>
 						</li>
 						<li><a href="adm.php">Sair</a></li>
@@ -129,10 +129,8 @@
 				
 				<input type = "text" id = "uf" name = "uf" class = "form-control" placeholder = "uf" autofocus><br>
 				
-				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Cadastrar </button>
-			</form>
-		</div>
-		<p class = "text-center">
+				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Cadastrar </button><br><br><br>
+				<p class = "text-center text-danger">
 			<?php
 				if(isset($_SESSION['okemp'])){
 					echo $_SESSION['okemp'];
@@ -145,6 +143,8 @@
 			
 			?>
 		</p>
+			</form>
+		</div>
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		

@@ -6,8 +6,8 @@ $evento = $_POST["evento"];
 
 
 $bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
-$resultado = pg_query($bdcon,"DELETE FROM evento_atracao where dataevento = '$evento'");
-$resultadob = pg_query($bdcon,"DELETE FROM evento where dataevento = '$evento'");
+$resultado = pg_query($bdcon,"DELETE FROM evento_atracao where idevento = '$evento'");
+$resultadob = pg_query($bdcon,"DELETE FROM evento where idevento = '$evento'");
 
 if($resultado){
 	$_SESSION['okevento'] = "Evento removido com sucesso!";

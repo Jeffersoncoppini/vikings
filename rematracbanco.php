@@ -6,8 +6,8 @@ $atrac = $_POST["atrac"];
 
 
 $bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
-$resultado = pg_query($bdcon,"DELETE FROM evento_atracao where nomeatracao = '$atrac'");
-$resultadob = pg_query($bdcon,"DELETE FROM atracao where nomeatracao = '$atrac'");
+$resultado = pg_query($bdcon,"DELETE FROM evento_atracao where idatracao = '$atrac'");
+$resultadob = pg_query($bdcon,"DELETE FROM atracao where idatracao = '$atrac'");
 
 if($resultado){
 	$_SESSION['okatrac'] = "Atração Removida com sucesso!";

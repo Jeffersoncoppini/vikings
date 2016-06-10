@@ -105,7 +105,7 @@
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 					$resultado = pg_query($bdcon,"SELECT * FROM evento");
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["nomeevento"].' - '.$aux2["dataevento"].' <input type="radio" name="evento" id="evento" value="'.$aux2["dataevento"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
+						echo '<label class = "text-center"> '.$aux2["nomeevento"].' - '.$aux2["dataevento"].' <input type="radio" name="evento" id="evento" value="'.$aux2["idevento"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
 					}
 				?>
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Remover</button><br><br><br>

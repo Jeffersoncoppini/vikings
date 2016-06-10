@@ -117,7 +117,7 @@
 					?>
 				</p>
 				
-				<p class = "text-center">
+				<p class = "text-center text-danger">
 			<?php
 				if(isset($_SESSION['erroevento'])){
 					echo $_SESSION['erroevento'];
@@ -139,7 +139,7 @@
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 					$resultado = pg_query($bdcon,"SELECT * FROM evento where nomeevento like'".$busca."%'");
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["nomeevento"].' - '.$aux2["dataevento"].' <input type="radio" name="evento" id="evento" value="'.$aux2["dataevento"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
+						echo '<label class = "text-center"> '.$aux2["nomeevento"].' - '.$aux2["dataevento"].' <input type="radio" name="evento" id="evento" value="'.$aux2["idevento"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
 					}
 					unset($_SESSION['existe']);
 					echo'<button type = "submit" class = "btn btn-lg btn-default btn-block"> Alterar</button>';
@@ -148,7 +148,7 @@
 				if(isset($_SESSION['existe2'])){
 					$busca = $_SESSION['existe2'];
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
-					$resultado = pg_query($bdcon,"SELECT * from evento where dataevento = '$busca'");
+					$resultado = pg_query($bdcon,"SELECT * from evento where idevento = '$busca'");
 					$aux2 = pg_fetch_assoc($resultado);
 					echo'<form action = "alteventobanco3.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
 					echo'<input type = "text" value = "'.$aux2["nomeevento"].'" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>

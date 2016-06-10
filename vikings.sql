@@ -7,7 +7,8 @@ CREATE TABLE reserva(
 );
 
 CREATE TABLE evento(
-	dataevento date NOT NULL constraint pk_evento primary key,
+	idevento serial NOT NULL constraint pk_evento primary key,
+	dataevento date NOT NULL,
 	nomeevento varchar(30) NOT NULL,
 	imagem varchar (30) NOT NULL,
 	hora time NOT NULL,
@@ -15,7 +16,8 @@ CREATE TABLE evento(
 );
 
 CREATE TABLE atracao(
-	nomeatracao varchar(30) NOT NULL primary key,
+	idatracao serial NOT NULL constraint pk_atracao primary key,
+	nomeatracao varchar(30) NOT NULL,
 	qtvotos integer,
 	email varchar(30),
 	telefone varchar(30) NOT NULL,
@@ -23,11 +25,11 @@ CREATE TABLE atracao(
 );
 
 CREATE TABLE evento_atracao(
-	dataevento date NOT NULL,
-	nomeatracao varchar(30) NOT NULL,
-	constraint pk_evento_atracao primary key(dataevento,nomeatracao),
-	constraint fk_evento_evento_atracao foreign key(dataevento) references evento(dataevento),
-	constraint fk_atracao_evento_atracao foreign key(nomeatracao) references atracao(nomeatracao)
+	idevento integer NOT NULL,
+	idatracao integer NOT NULL,
+	constraint pk_evento_atracao primary key(idevento,idatracao),
+	constraint fk_evento_evento_atracao foreign key(idevento) references evento(idevento),
+	constraint fk_atracao_evento_atracao foreign key(idatracao) references atracao(idatracao)
 );
 
 CREATE TABLE usuario(

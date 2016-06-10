@@ -139,7 +139,7 @@
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 					$resultado = pg_query($bdcon,"SELECT * FROM atracao where nomeatracao like'".$busca."%'");
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["nomeatracao"].' <input type="radio" name="atrac" id="atrac" value="'.$aux2["nomeatracao"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
+						echo '<label class = "text-center"> '.$aux2["nomeatracao"].' <input type="radio" name="atrac" id="atrac" value="'.$aux2["idatracao"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
 					}
 					unset($_SESSION['existe']);
 					echo'<button type = "submit" class = "btn btn-lg btn-default btn-block"> Alterar</button>';
@@ -148,7 +148,7 @@
 				if(isset($_SESSION['existe2'])){
 					$busca = $_SESSION['existe2'];
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
-					$resultado = pg_query($bdcon,"SELECT * from atracao where nomeatracao = '$busca'");
+					$resultado = pg_query($bdcon,"SELECT * from atracao where idatracao = '$busca'");
 					$aux2 = pg_fetch_assoc($resultado);
 					echo'<form action = "altatracbanc3.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
 					echo'<label for = "nome">Nome:</label>
