@@ -89,8 +89,8 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Perfil <span class="caret"></span></a>
 							<ul class="dropdown-menu inverse-dropdown">
-								<li><a href="inanun.php">Alterar perfil</a></li>
-								<li><a href="altanun.php">Criar usuário</a></li>
+								<li><a href="altperfil.php">Alterar perfil</a></li>
+								<li><a href="cadusu.php">Criar usuário</a></li>
 							</ul>
 						</li>
 						<li><a href="adm.php">Sair</a></li>
@@ -100,7 +100,7 @@
 		</nav>
 		
 		<div class = "container">
-			<form action = "altatracbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
+			<form action = "altempbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Alteração de empresas</h2><br>
 				<label for = "nome">Busca:</label>
 				<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
@@ -117,60 +117,75 @@
 					?>
 				</p>
 				
+				<p class = "text-center text-danger">
+			<?php
+				if(isset($_SESSION['erroemp'])){
+					echo $_SESSION['erroemp'];
+					unset($_SESSION['erroemp']);
+				}
+				if(isset($_SESSION['aceptemp'])){
+					echo $_SESSION['aceptemp'];
+					unset($_SESSION['aceptemp']);
+				}
+			
+			?>
+		</p>
+				
 				
 			</form>
 			
 			<?php
 				if(isset($_SESSION['existe'])){
-					echo'<form action = "altatracbanco2.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
+					echo'<form action = "altempbanco2.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
 					$busca = $_SESSION['existe'];
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
-					$resultado = pg_query($bdcon,"SELECT * FROM atracao where nomeatrac like'".$busca."%'");
+					$resultado = pg_query($bdcon,"SELECT * FROM empresa where rsocial like'".$busca."%'");
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["nomeatrac"].' <input type="radio" name="atrac" id="atrac" value="'.$aux2["nomeatrac"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
+						echo '<label class = "text-center"> '.$aux2["rsocial"].' <input type="radio" name="emp" id="emp" value="'.$aux2["cnpj"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
 					}
 					unset($_SESSION['existe']);
-					echo'<button type = "submit" class = "btn btn-lg btn-primary btn-block"> Alterar</button>';
+					echo'<button type = "submit" class = "btn btn-lg btn-default btn-block"> Alterar</button>';
 					echo'</form>';
 				}
 				if(isset($_SESSION['existe2'])){
 					$busca = $_SESSION['existe2'];
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
-					$resultado = pg_query($bdcon,"SELECT * from atracao where nomeatrac = '$busca'");
+					$resultado = pg_query($bdcon,"SELECT * from empresa where cnpj = '$busca'");
 					$aux2 = pg_fetch_assoc($resultado);
-					echo'<form action = "altatracbanc3.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
-					echo'<label for = "nome">Nome:</label>
-					<input type = "text" id = "nome" value ="'.$aux2["nomeatrac"].'" name = "nome" class = "form-control" placeholde = "nome" required autofocus><br>
+					echo'<form action = "altempbanco3.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
+					echo'
+					<input type = "text" id = "nome" value = "'.$aux2["rsocial"].'" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
 				
-					<label for = "email"> E-mail:</label>
-					<input type = "mail" id = "email" value ="'.$aux2["email"].'" name = "email" class = "form-control" placeholde = "email" autofocus></br>
+					<input type = "text" id = "fant" value = "'.$aux2["nomefant"].'" name = "fant" class = "form-control" placeholder = "nome fantasia" autofocus></br>
 				
-					<label for = "telefone"> Telefone:</label>
-					<input type = "tel" id = "tel" value ="'.$aux2["telefone"].'" name = "tel" class = "form-control" placeholde = "tel" required autofocus></br>
+					<input type = "text" id = "ie" value = "'.$aux2["ie"].'" name = "ie" class = "form-control" placeholder = "ie" autofocus></br>
+				
+					<input type = "tel" id = "tel" value = "'.$aux2["telefone"].'" name = "tel" class = "form-control" placeholder = "telefone" required autofocus></br>
 		
-					<label for = "tipo">Tipo:</label>
-					<input type = "text" id = "tipo" value="'.$aux2["tipo"].'" name = "tipo" class = "form-control" placeholde = "tipo" required autofocus><br>
+					<input type = "mail" id = "email" value = "'.$aux2["email"].'" name = "email" class = "form-control" placeholder = "email" autofocus><br>
 				
-					<button type = "submit" class = "btn btn-lg btn-primary btn-block"> Alterar </button>
+					<input type = "text" id = "rua" value = "'.$aux2["rua"].'" name = "rua" class = "form-control" placeholder = "rua" required autofocus><br>
+				
+					<input type = "text" id = "bairro" value = "'.$aux2["bairro"].'" name = "bairro" class = "form-control" placeholder = "bairro" required autofocus><br>
+				
+					<input type = "text" id = "num" value = "'.$aux2["numero"].'" name = "num" class = "form-control" placeholder = "número" required autofocus><br>
+				
+					<input type = "text" id = "compl" value = "'.$aux2["complemento"].'" name = "compl" class = "form-control" placeholder = "complemento" autofocus><br>
+				
+					<input type = "text" id = "cep" value = "'.$aux2["cep"].'" name = "cep" class = "form-control" placeholder = "cep" autofocus><br>
+				
+					<input type = "text" id = "cid" value = "'.$aux2["cidade"].'" name = "cid" class = "form-control" placeholder = "cidade" autofocus><br>
+				
+					<input type = "text" id = "uf" value = "'.$aux2["uf"].'" name = "uf" class = "form-control" placeholder = "uf" autofocus><br>
+				
+					<button type = "submit" class = "btn btn-lg btn-default btn-block"> Alterar </button><br><br><br>
+				
 					
 					</form>';
 					
 				}
 			?>
 		</div>
-		<p class = "text-center">
-			<?php
-				if(isset($_SESSION['erroaltprod'])){
-					echo $_SESSION['erroaltprod'];
-					unset($_SESSION['erroaltprod']);
-				}
-				if(isset($_SESSION['aceptaltprod'])){
-					echo $_SESSION['aceptaltprod'];
-					unset($_SESSION['aceptaltprod']);
-				}
-			
-			?>
-		</p>
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		
