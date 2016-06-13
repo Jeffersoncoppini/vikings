@@ -84,6 +84,7 @@
 								<li><a href="relemp.php">Relatórios</a></li>
 							</ul>
 						</li>
+						<li><a href="cadpgini.php">Gerenciar página inicial</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">

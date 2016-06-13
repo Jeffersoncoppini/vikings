@@ -100,6 +100,19 @@
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
+		<footer> <!-- Aqui e a area do footer -->
+			<div class="container">
+				<div class="copyright">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<p>&copy; Todos os direitos reservados.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
 		
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

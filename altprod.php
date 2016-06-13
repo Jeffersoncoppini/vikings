@@ -84,12 +84,13 @@
 								<li><a href="relemp.php">Relatórios</a></li>
 							</ul>
 						</li>
+						<li><a href="cadpgini.php">Gerenciar página inicial</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Perfil <span class="caret"></span></a>
 							<ul class="dropdown-menu inverse-dropdown">
-								<li><a href="alrperfil.php">Alterar perfil</a></li>
+								<li><a href="altperfil.php">Alterar perfil</a></li>
 								<li><a href="cadusu.php">Criar usuário</a></li>
 							</ul>
 						</li>
