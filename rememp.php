@@ -89,8 +89,8 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Perfil <span class="caret"></span></a>
 							<ul class="dropdown-menu inverse-dropdown">
-								<li><a href="inanun.php">Alterar perfil</a></li>
-								<li><a href="altanun.php">Criar usuário</a></li>
+								<li><a href="altperfil.php">Alterar perfil</a></li>
+								<li><a href="cadusu.php">Criar usuário</a></li>
 							</ul>
 						</li>
 						<li><a href="adm.php">Sair</a></li>
@@ -100,30 +100,31 @@
 		</nav>
 		
 		<div class = "container">
-			<form action = "remprombanco.php" method = "POST" accept-charset = "utf-8" class = "form-login" enctype ="multipart/form-data">
+			<form action = "remempbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login" enctype ="multipart/form-data">
 				<?php
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
-					$resultado = pg_query($bdcon,"SELECT * FROM promocao");
+					$resultado = pg_query($bdcon,"SELECT * FROM empresa");
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["nomepromo"].' - '.$aux2["datainicio"].' <input type="radio" name="promo" id="promo" value="'.$aux2	["nomepromo"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
+						echo '<label class = "text-center"> '.$aux2["rsocial"].' - '.$aux2["cnpj"].' <input type="radio" name="emp" id="emp" value="'.$aux2	["cnpj"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
 					}
 				?>
-				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Remover</button>
-			</form>
-		</div>
-		<p class = "text-center">
+				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Remover</button><br><br><br>
+						<p class = "text-center text-danger">
 			<?php
-				if(isset($_SESSION['okprom'])){
-					echo $_SESSION['okprom'];
-					unset($_SESSION['okprom']);
+				if(isset($_SESSION['okemp'])){
+					echo $_SESSION['okemp'];
+					unset($_SESSION['okemp']);
 				}
-				if(isset($_SESSION['erroprom'])){
-					echo $_SESSION['erroprom'];
-					unset($_SESSION['erroprom']);
+				if(isset($_SESSION['erroemp'])){
+					echo $_SESSION['erroemp'];
+					unset($_SESSION['erroemp']);
 				}
 			
 			?>
 		</p>
+
+			</form>
+		</div>
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		

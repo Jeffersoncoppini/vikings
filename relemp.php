@@ -89,8 +89,8 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Perfil <span class="caret"></span></a>
 							<ul class="dropdown-menu inverse-dropdown">
-								<li><a href="inanun.php">Alterar perfil</a></li>
-								<li><a href="altanun.php">Criar usuário</a></li>
+								<li><a href="altprefil.php">Alterar perfil</a></li>
+								<li><a href="cadusu.php">Criar usuário</a></li>
 							</ul>
 						</li>
 						<li><a href="adm.php">Sair</a></li>
@@ -100,29 +100,25 @@
 		</nav>
 		
 		<div class = "container">
-			<form action = "relprombanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
+			<form action = "relempbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Empresas - Reletórios</h2><br>
 				
-				<label class = "text-center"> Relatório de todas as promoções
-				<input type="radio" name="prom" id="prom" value="todosprom" class = "form-control" autofocus><br>
+				<label class = "text-center"> Relatório de todas as empresas
+				<input type="radio" name="emp" id="emp" value="todosemp" class = "form-control" autofocus><br>
 				</label>&nbsp;&nbsp;&nbsp;&nbsp;
-				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Gerar </button>
-				
-			</form>
-		</div>
-		<p class = "text-center">
+				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Gerar </button><br><br><br>
+				<p class = "text-center">
 			<?php
 				if(isset($_SESSION['erro'])){
 					echo $_SESSION['erro'];
 					unset($_SESSION['erro']);
 				}
-				if(isset($_SESSION['aceptaltprod'])){
-					echo $_SESSION['aceptaltprod'];
-					unset($_SESSION['aceptaltprod']);
-				}
 			
 			?>
 		</p>
+				
+			</form>
+		</div>
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		
