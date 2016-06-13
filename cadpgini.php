@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang = "pt-br">
 	<head>
-		<title>Vikings Taberna-Menu adm</title>
+		<title>Vikings Taberna-Gerenciar página inicial</title>
 		<!-- Última versão CSS compilada e minificada -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -10,8 +10,8 @@
 
 		<!-- Última versão JavaScript compilada e minificada -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-		<link rel = "stylesheet" type = "text/css" href="css/menu.css">
 		<meta charset = "utf-8">
+		<link rel = "stylesheet" type = "text/css" href="css/menu.css">
 	</head>
 	<body>
 		<?php
@@ -71,7 +71,6 @@
 							</ul>
 						</li>
 						
-						
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Anuncios <span class="caret"></span></a>
 							<ul class="dropdown-menu inverse-dropdown">
@@ -100,6 +99,32 @@
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
+		<div class = "container">
+			<form action = "cadpginibanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
+				<h2 class = "form-login-heading">Selecione uma promoção</h2><br>
+				<?php
+					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					$resultado = pg_query($bdcon,"SELECT * FROM promocao");
+					while($aux2 = pg_fetch_assoc($resultado)){
+						echo '<label class = "text-center"> '.$aux2["nomepromo"].' <input type="radio" name="promo" id="promo" value="'.$aux2["nomepromo"].'" class = "form-control" placeholde = "promo" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
+					}
+					$_SESSION['link'] = "link";	
+				?>
+				
+				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Próximo </button><br><br><br>
+				
+				<p class = "text-center text-danger">
+			<?php
+				
+				if(isset($_SESSION['erro'])){
+					echo $_SESSION['erro'];
+					unset($_SESSION['erro']);
+				}
+			
+			?>
+		</p>
+			</form>
+		</div>
 		
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
