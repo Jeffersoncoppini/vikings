@@ -29,4 +29,14 @@ iframe{
 
 .img-responsive{
 	margin:0 auto;
+}
+
+.form-login{
+	max-width: 600px;
+}
+.form-login .btn{
+	max-width: 110px;
+	max-height:50px;
+	padding:15px;
+}
 

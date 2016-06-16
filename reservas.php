@@ -11,7 +11,7 @@
 		<!-- Última versão JavaScript compilada e minificada -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 		<meta charset = "utf-8">
-		<link rel = "stylesheet" type = "text/css" href="css/index.css">
+		<link rel = "stylesheet" type = "text/css" href="css/menu.css">
 	</head>
 	<body>
 		<nav class="navbar navbar-inverse">
@@ -43,22 +43,73 @@
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
+		
+		<div class "container">
+			<form action = "reservasbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login" enctype ="multipart/form-data">
+			
+				<h2 class = "form-login-heading">Faça sua reserva</h2><br>
+			
+				<div class ="row">
+					<div class="col-xs-10 col-sm-6 col-md-6">
+						<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "Nome" required autofocus><br>
+					</div>
+					
+					<div class="col-xs-10 col-sm-6 col-md-6">
+						<input type = "text" id = "cpf" name = "cpf" class = "form-control" placeholder = "CPF" autofocus>
+					</div>
+				</div>
+				<div class ="row">
+					<div class="col-xs-10 col-sm-6 col-md-6">
+						<label for = "data"> Data:</label>
+						<input type = "date" id = "data" name = "data" class = "form-control" placeholder = "Data" required autofocus>
+					</div>
+				
+					<div class="col-xs-10 col-sm-6 col-md-6">
+						<label for = "hora"> Hora:</label>
+						<input type = "time" id = "hora" name = "hora" class = "form-control" placeholder = "Hora" required autofocus><br><br>
+					</div>
+				</div>
+				<div class ="row">				
+					<div class="col-xs-10 col-sm-3 col-md-3">
+						<input type = "number" id = "qtpessoas" name = "qtpessoas" class = "form-control" placeholder = "Lugares" required autofocus></br><br>
+					</div>
+				</div>
+				
+				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Reservar	 </button><br>
+				
+				<p class = "text-center text-danger">
+			<?php
+				session_start();
+				if(isset($_SESSION['ok'])){
+					echo $_SESSION['ok'];
+					unset($_SESSION['ok']);
+				}
+				if(isset($_SESSION['errores'])){
+					echo $_SESSION['errores'];
+					unset($_SESSION['errores']);
+				}
+			
+			?>
+		</p>
+			
+			</form>
+		</div>
 		<footer> <!-- Aqui e a area do footer -->
 			<div class="container">
 				<div class ="row">
-					<div class="col-xs-4 col-md-4">
+					<div class="hidden-xs hidden-sm col-md-4">
 						<a>
 							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3551.816965525351!2d-52.61780724903035!3d-27.099066607446623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e4b69e666506cd%3A0x60bae2452eec1837!2sR.+Benjamin+Constant%2C+51+-+Centro%2C+Chapec%C3%B3+-+SC!5e0!3m2!1spt-BR!2sbr!4v1466012875181"></iframe>	
 						</a>	
 					</div>
-					<div class="col-xs-3 col-md-3">	
+					<div class="hidden-xs hidden-sm col-md-3">	
 						<br>Vikings Tabernas<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456
 					</div>
-					<div class="col-xs-1 col-md-1">
+					<div class="hidden-xs hidden-sm col-md-1">
 						<br><a href = "https://www.facebook.com/Vikings-Taberna-1676370405939228/?fref=ts"><img src="imagens/face.jpg" class = "img-responsive"></img></a>	
 					</div>
 					
-					<div class="col-xs-3 col-md-3">
+					<div class="hidden-xs hidden-sm col-md-3">
 						<br><br><br>Visite nossa página no Facebook
 					</div>
 					
