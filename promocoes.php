@@ -43,22 +43,54 @@
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
+		
+		<div class="container">
+			<h2>Promoções</h2>
+				<?php
+					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					$resultado = pg_query($bdcon,"SELECT *from promocao");
+					while($aux2 = pg_fetch_assoc($resultado)){
+						echo '<div class ="row">
+								<div class="col-xs-12 col-md-4">
+									<img src = "'.$aux2["imagem"].'" class = "img-responsive">
+								</div>
+								
+								<div class="hidden-xs col-md-4">
+									<h3>'.$aux2["nomepromo"].'</h3>
+									<h3>Preço: R$ '.$aux2["precopromo"].'</h3>
+									<h3>Valido até: ';
+									 echo date('d/m/Y',  strtotime($aux2["datafim"]));
+									 echo'</h3>
+								</div>';
+								$resultadob = pg_query($bdcon,"SELECT *from promocao_produto natural join produto where promocao_produto.nomepromo = '$aux2[nomepromo]'");
+								echo'<div class="hidden-xs col-md-4">
+									<h3> Composição:<br><br>';
+									while($aux = pg_fetch_assoc($resultadob)){
+										echo $aux["nome"];
+									}
+									echo'<br></h3>
+									</div>
+							</div>';
+					}
+				?>
+		</div>
+		
 		<footer> <!-- Aqui e a area do footer -->
 			<div class="container">
 				<div class ="row">
-					<div class="col-xs-4 col-md-4">
+					<div class="hidden-xs col-md-4">
 						<a>
 							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3551.816965525351!2d-52.61780724903035!3d-27.099066607446623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e4b69e666506cd%3A0x60bae2452eec1837!2sR.+Benjamin+Constant%2C+51+-+Centro%2C+Chapec%C3%B3+-+SC!5e0!3m2!1spt-BR!2sbr!4v1466012875181"></iframe>	
 						</a>	
 					</div>
-					<div class="col-xs-3 col-md-3">	
+					<div class="hidden-xs col-md-3">	
 						<br>Vikings Tabernas<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456
 					</div>
-					<div class="col-xs-1 col-md-1">
+					<div class="hidden-xs col-md-1">
 						<br><a href = "https://www.facebook.com/Vikings-Taberna-1676370405939228/?fref=ts"><img src="imagens/face.jpg" class = "img-responsive"></img></a>	
 					</div>
 					
-					<div class="col-xs-3 col-md-3">
+					<div class="hidden-xs col-md-3">
 						<br><br><br>Visite nossa página no Facebook
 					</div>
 					
