@@ -103,18 +103,24 @@
 		<div class = "container">
 			<form action = "inanaunbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login" enctype ="multipart/form-data">
 				<h2 class = "form-login-heading">Cadastro de Anuncios</h2><br>
-				<label for = "desc">Descrição:</label>
-				<input type = "text" id = "desc" name = "desc" class = "form-control" placeholde = "desc" required autofocus><br>
+				<div class ="row">
+					<div class="col-xs-6 col-md-6">
+						<input type = "text" id = "desc" name = "desc" class = "form-control" placeholder = "Descrição" required autofocus><br>
+					</div>
+				</div>
 				
 				<h4><label for = "imagem"> Selecione a Empresa:</label></h4><br>
-				
+				<div class ="row">
 				<?php
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 					$resultado = pg_query($bdcon,"SELECT empresa.cnpj,empresa.rsocial FROM empresa");
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["rsocial"].' - '.$aux2["cnpj"].' <input type="radio" name="emp" id="emp" value="'.$aux2["cnpj"].'" class = "form-control" placeholde = "emp" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
+						echo '<div class="col-xs-6 col-md-6">
+								<label class = "text-center"> '.$aux2["rsocial"].' - '.$aux2["cnpj"].'</label> <input type="radio" name="emp" id="emp" value="'.$aux2["cnpj"].'" class = "form-control" placeholde = "emp" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;
+							</div>';
 					}	
 				?>
+				</div>
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Cadastrar</button><br><br><br>
 				<p class = "text-center text-danger">
 			<?php

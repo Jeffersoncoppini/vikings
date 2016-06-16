@@ -102,15 +102,18 @@
 		<div class = "container">
 			<form action = "cadpginibanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Selecione uma promoção</h2><br>
+				<div class ="row">
 				<?php
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 					$resultado = pg_query($bdcon,"SELECT * FROM promocao");
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["nomepromo"].' <input type="radio" name="promo" id="promo" value="'.$aux2["nomepromo"].'" class = "form-control" placeholde = "promo" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
+						echo '<div class="col-xs-6 col-md-6">
+								<label class = "text-center"> '.$aux2["nomepromo"].' </label><input type="radio" name="promo" id="promo" value="'.$aux2["nomepromo"].'" class = "form-control" placeholde = "promo" autofocus><br>&nbsp;&nbsp;&nbsp;&nbsp;
+							</div>';
 					}
 					$_SESSION['link'] = "link";	
 				?>
-				
+				</div>
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Próximo </button><br><br><br>
 				
 				<p class = "text-center text-danger">

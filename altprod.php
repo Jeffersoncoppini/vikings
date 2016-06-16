@@ -103,7 +103,11 @@
 		<div class = "container">
 			<form action = "altprodbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Alteração de produtos</h2><br>
-				<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
+				<div class ="row">
+					<div class="col-xs-6 col-md-6">
+						<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
+					</div>
+				</div>
 				
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Buscar </button>
 				
@@ -139,9 +143,17 @@
 					$busca = $_SESSION['existe'];
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 					$resultado = pg_query($bdcon,"SELECT * FROM produto where nome like'".$busca."%'");
+					echo'<div class ="row">';
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["codproduto"].' - '.$aux2["nome"].' <input type="radio" name="prod" id="emp" value="'.$aux2["codproduto"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
+						
+						echo '
+								<div class="col-xs-4 col-md-4">
+									<label class = "text-center"> '.$aux2["codproduto"].' - '.$aux2["nome"].'</label><input type="radio" name="prod" id="emp" value="'.$aux2["codproduto"].'" class = "form-control" autofocus>&nbsp;&nbsp;&nbsp;&nbsp;
+								</div>';
+								
+					
 					}
+					echo'</div>';
 					unset($_SESSION['existe']);
 					echo'<button type = "submit" class = "btn btn-lg btn-default btn-block"> Alterar</button>';
 					echo'</form>';
@@ -153,17 +165,28 @@
 					$aux2 = pg_fetch_assoc($resultado);
 					echo'<form action = "altprodbanc3.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
 					echo'<h2 class = "form-login-heading">Alteracao de produtos</h2><br>
-					<input type = "text" id = "nome" value = "'.$aux2["nome"].'" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
-				
-					<input type = "text" id = "desc" value = "'.$aux2["descricao"].'" name = "desc" class = "form-control" placeholder = "Descrição" autofocus></br>
-				
-					<input type = "text" id = "un" value = "'.$aux2["un"].'" name = "un" class = "form-control" placeholder = "un" required autofocus></br>
-				
-					<input type = "number" step = 0.01 id = "preco" value = "'.$aux2["preco"].'" name = "preco" class = "form-control" placeholder = "Preço" required autofocus></br>
-					
-					<input type = "text" id = "tipo" value = "'.$aux2["tipo"].'" name = "tipo" class = "form-control" placeholder = "tipo" required autofocus><br>
-				
-					
+					<div class ="row">
+						<div class="col-xs-6 col-md-6">
+							<input type = "text" id = "nome" value = "'.$aux2["nome"].'" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
+						</div>
+						
+						<div class="col-xs-6 col-md-6">
+							<input type = "text" id = "desc" value = "'.$aux2["descricao"].'" name = "desc" class = "form-control" placeholder = "Descrição" autofocus></br>
+						</div>
+					</div>
+					<div class ="row">
+						<div class="col-xs-4 col-md-4">
+							<input type = "text" id = "un" value = "'.$aux2["un"].'" name = "un" class = "form-control" placeholder = "un" required autofocus></br>
+						</div>
+						
+						<div class="col-xs-4 col-md-4">
+							<input type = "number" step = 0.01 id = "preco" value = "'.$aux2["preco"].'" name = "preco" class = "form-control" placeholder = "Preço" required autofocus></br>
+						</div>
+						
+						<div class="col-xs-4 col-md-4">
+							<input type = "text" id = "tipo" value = "'.$aux2["tipo"].'" name = "tipo" class = "form-control" placeholder = "tipo" required autofocus><br>
+						</div>
+					</div>
 					<button type = "submit" class = "btn btn-lg btn-default btn-block"> Alterar </button>
 					
 					</form>';

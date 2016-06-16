@@ -103,10 +103,13 @@
 		<div class = "container">
 			<form action = "relempbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Empresas - Reletórios</h2><br>
-				
-				<label class = "text-center"> Relatório de todas as empresas
-				<input type="radio" name="emp" id="emp" value="todosemp" class = "form-control" autofocus><br>
-				</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<div class ="row">
+					<div class="col-xs-6 col-md-6">
+						<label class = "text-center"> Relatório de todas as empresas
+						<input type="radio" name="emp" id="emp" value="todosemp" class = "form-control" autofocus><br>
+						</label>&nbsp;&nbsp;&nbsp;&nbsp;
+					</div>
+				</div>
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Gerar </button><br><br><br>
 				<p class = "text-center">
 			<?php

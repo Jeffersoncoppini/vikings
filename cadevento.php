@@ -103,26 +103,41 @@
 		<div class = "container">
 			<form action = "cadeventobanco.php" method = "POST" accept-charset = "utf-8" class = "form-login" enctype ="multipart/form-data">
 				<h2 class = "form-login-heading">Cadastro de Eventos</h2><br>
-			
-				<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
+				<div class ="row">
+					<div class="col-xs-6 col-md-6">
+						<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
+					</div>
+				</div>
+				<div class ="row">
+					<div class="col-xs-4 col-md-4">
+						<label for = "hora"> hora:</label>
+						<input type = "time" id = "hora" name = "hora" class = "form-control" placeholder = "hora"required autofocus></br>
+					</div>
+					
+					<div class="col-xs-4 col-md-4">
+						<label for = "data"> Data:</label>
+						<input type = "date" id = "data" name = "data" class = "form-control" placeholder = "data" required autofocus></br>
+					</div>
+					
+					<div class="col-xs-4 col-md-4">
+						<label for = "imagem"> Selecione uma imagem:</label>
+						<input type="file" name="arquivo" id="imagem" class = "form-control" placeholder = "arquivo" autofocus><br><br>
+					</div>
+				</div>
 				
-				<input type="file" name="arquivo" id="imagem" class = "form-control" placeholder = "arquivo" autofocus><br><br>
 				
-				<label for = "hora"> hora:</label>
-				<input type = "time" id = "hora" name = "hora" class = "form-control" placeholder = "hora"required autofocus></br>
-				
-				<label for = "data"> Data:</label>
-				<input type = "date" id = "data" name = "data" class = "form-control" placeholder = "data" required autofocus></br>
-				
-				<h4><label for = "imagem"> Selecione as atrações:</label></h4><br>
-				
+				<h4><label for = "atracoes"> Selecione as atrações:</label></h4><br>
+				<div class ="row">
 				<?php
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 					$resultado = pg_query($bdcon,"SELECT * FROM atracao");
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["nomeatracao"].' <input type="checkbox" name="atrac[]" id="atrac" value="'.$aux2["idatracao"].'" class = "form-control" placeholde = "atrac" autofocus><br></label><br>';
-					}	
+						echo '<div class="col-xs-4 col-md-4">
+								<label class = "text-center"> '.$aux2["nomeatracao"].' </label><input type="checkbox" name="atrac[]" id="atrac" value="'.$aux2["idatracao"].'" class = "form-control" placeholde = "atrac" autofocus><br><br>
+							</div>';
+					}
 				?>
+				</div>
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Cadastrar</button><br><br><br>
 				<p class = "text-center text-danger">
 			<?php

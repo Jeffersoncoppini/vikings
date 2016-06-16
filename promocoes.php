@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang = "pt-br">
 	<head>
-		<title>Vikings Taberna-Home</title>
+		<title>Vikings Taberna-Promoções</title>
 		<!-- Última versão CSS compilada e minificada -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -43,41 +43,6 @@
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
-		<div class = "container">
-			<section id = "sliderhome">
-				<div id="myCarousel" class="carousel slide" data-ride="carousel">
-					<!-- Indicators -->
-					<ol class="carousel-indicators">
-						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						<li data-target="#myCarousel" data-slide-to="1"></li>
-						<li data-target="#myCarousel" data-slide-to="2"></li>
-						<li data-target="#myCarousel" data-slide-to="3"></li>
-					</ol>
-
-					<!-- Wrapper for slides -->
-					<div class="carousel-inner" role ="listbox">
-						<?php
-							session_start();
-							$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
-							$resultado = pg_query($bdcon,"SELECT * FROM promocao where pgini = 1");
-							$resultadob = pg_query($bdcon,"SELECT * FROM evento where pgini = 1");
-							
-							$resp = pg_fetch_assoc($resultado);
-							$resp2 = pg_fetch_assoc($resultadob);
-					
-						echo'<div class="item active"><img src = "'.$resp["imagem"].'" class = "img-responsive" lat = "Promoção"></div>
-						<div class="item"><img src = "'.$resp2["imagem"].'" class = "img-responsive" alt = "Evento"></div>
-						<div class="item"><img src = "imagens/votacao.jpg" class = "img-responsive" alt = "Votação"></div>
-						<div class="item"><img src = "imagens/reserva.jpg" class = "img-responsive" alt = "Reserva"></div>';
-						?>
-					</div>
-
-					<!-- Left and right controls -->
-					<a class="left carousel-control" href="#myCarousel" role = "button"data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-					<a class="right carousel-control" href="#myCarousel" role = "button"data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-				</div>
-			</section>
-		</div>
 		<footer> <!-- Aqui e a area do footer -->
 			<div class="container">
 				<div class ="row">
@@ -105,3 +70,4 @@
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</body>
 </html>
+

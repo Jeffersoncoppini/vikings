@@ -103,32 +103,50 @@
 		<div class = "container">
 			<form action = "inprombanco.php" method = "POST" accept-charset = "utf-8" class = "form-login" enctype ="multipart/form-data">
 				<h2 class = "form-login-heading">Cadastro de Promoções</h2><br>
+				<div class ="row">
+					<div class="col-xs-5 col-md-5">
+						<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
+					</div>
+					
+					<div class="col-xs-4 col-md-4">
+						<input type = "text" id = "desc" name = "desc" class = "form-control" placeholder = "descrição" autofocus><br>
+					</div>
+					
+					<div class="col-xs-3 col-md-3">
+						<input type = "number" step = 0.01 id = "precopromo" name = "precopromo" class = "form-control" placeholder = "preço" required autofocus></br>
+					</div>
+				</div>
 				
-				<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
+				<div class ="row">
+					<div class="col-xs-4 col-md-4">
+						<label for = "datai"> Data de inicio:</label>
+						<input type = "date" id = "datai" name = "datai" class = "form-control" placeholder = "data inicial" required autofocus></br>
+					</div>
+					
+					<div class="col-xs-4 col-md-4">	
+						<label for = "dataf"> Data final:</label>
+						<input type = "date" id = "dataf" name = "dataf" class = "form-control" placeholder = "data final" required autofocus></br>
+					</div>
+					
+					<div class="col-xs-4 col-md-4">
+						<label for = "imagem"> Selecione uma imagem:</label>
+						<input type="file" name="imagem" id="imagem" class = "form-control" placeholde = "imagem" autofocus>
+					</div>
+				</div>
 				
-				
-				<input type = "text" id = "desc" name = "desc" class = "form-control" placeholder = "descrição" autofocus><br>
-				
-				<input type = "number" step = 0.01 id = "precopromo" name = "precopromo" class = "form-control" placeholder = "preço" required autofocus></br>
-				<br><br><br>
-				<label for = "datai"> Data de inicio:</label>
-				<input type = "date" id = "datai" name = "datai" class = "form-control" placeholder = "data inicial" required autofocus></br>
-				
-				<label for = "dataf"> Data final:</label>
-				<input type = "date" id = "dataf" name = "dataf" class = "form-control" placeholder = "data final" required autofocus></br>
-				
-				<label for = "imagem"> Selecione uma imagem:</label>
-				<input type="file" name="imagem" id="imagem" class = "form-control" placeholde = "imagem" autofocus><br><br>
-				
-				
+	
 				<h4><label for = "selprod"> Selecione os produtos:</label></h4><br>
 				
 				<?php
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 					$resultado = pg_query($bdcon,"SELECT produto.nome,produto.codproduto FROM produto");
+					echo '<div class ="row">';
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["nome"].' <input type="checkbox" name="prod[]" id="prod" value="'.$aux2["codproduto"].'" class = "form-control" placeholde = "prod" autofocus></label>&nbsp;&nbsp;';
-					}	
+						echo '<div class="col-xs-6 col-md-6">
+								<label class = "text-center"> '.$aux2["nome"].'</label><input type="checkbox" name="prod[]" id="prod" value="'.$aux2["codproduto"].'" class = "form-control" placeholde = "prod" autofocus>&nbsp;&nbsp;
+							</div>';
+					}
+					echo'</div><br><br><br>';	
 				?>
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Cadastrar</button><br><br><br>
 				

@@ -102,13 +102,19 @@
 		
 		<div class = "container">
 			<form action = "remprombanco.php" method = "POST" accept-charset = "utf-8" class = "form-login" enctype ="multipart/form-data">
+				<h2 class = "form-login-heading">Remover promoções</h2><br>
+				<div class ="row">
 				<?php
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 					$resultado = pg_query($bdcon,"SELECT * FROM promocao");
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["nomepromo"].' <input type="radio" name="promo" id="promo" value="'.$aux2	["nomepromo"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
+						
+						echo '<div class="col-xs-5 col-md-5">
+								<label class = "text-center"> '.$aux2["nomepromo"].' <input type="radio" name="promo" id="promo" value="'.$aux2	["nomepromo"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;
+							</div>';
 					}
 				?>
+				</div>
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Remover</button><br><br><br>
 				<p class = "text-center text-danger">
 			<?php

@@ -103,8 +103,11 @@
 		<div class = "container">
 			<form action = "altanunbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Alteração de anuncios</h2><br>
-				<label for = "nome">Busca:</label>
-				<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "Descrição" required autofocus><br>
+				<div class ="row">
+					<div class="col-xs-6 col-md-6">
+						<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "Descrição" required autofocus><br>
+					</div>
+				</div>
 				
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Buscar </button>
 				
@@ -139,9 +142,13 @@
 					$busca = $_SESSION['existe'];
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 					$resultado = pg_query($bdcon,"SELECT * FROM anuncio where descricao like'".$busca."%'");
+					echo'<div class ="row">';
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["descricao"].'-'.$aux2["codanuncio"].' <input type="radio" name="anun" id="anun" value="'.$aux2["codanuncio"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
+						echo '<div class="col-xs-5 col-md-5">
+								<label class = "text-center"> '.$aux2["descricao"].'-'.$aux2["codanuncio"].'</label> <input type="radio" name="anun" id="anun" value="'.$aux2["codanuncio"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;
+							</div>';
 					}
+					echo'</div>';
 					unset($_SESSION['existe']);
 					echo'<button type = "submit" class = "btn btn-lg btn-default btn-block"> Alterar</button>';
 					echo'</form>';
@@ -152,9 +159,11 @@
 					$resultado = pg_query($bdcon,"SELECT * from anuncio where codanuncio = '$busca'");
 					$aux2 = pg_fetch_assoc($resultado);
 					echo'<form action = "altanunbanco3.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
-					echo'
-					<input type = "text" id = "desc" value ="'.$aux2["descricao"].'" name = "desc" class = "form-control" placeholde = "Descrição" required autofocus><br>
-				
+					echo'<div class ="row">
+							<div class="col-xs-5 col-md-5">
+								<input type = "text" id = "desc" value ="'.$aux2["descricao"].'" name = "desc" class = "form-control" placeholde = "Descrição" required autofocus><br>
+							</div>
+						</div>
 					<button type = "submit" class = "btn btn-lg btn-default btn-block"> Alterar </button>
 					
 					</form>';

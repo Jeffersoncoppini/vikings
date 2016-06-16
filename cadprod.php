@@ -102,16 +102,31 @@
 		
 		<div class = "container">
 			<form action = "cadprodbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
+				
 				<h2 class = "form-login-heading">Cadastro de produtos</h2><br>
-				<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "Nome" required autofocus><br>
+				<div class ="row">
+					<div class="col-xs-6 col-md-6">
+						<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "Nome" required autofocus><br>
+					</div>
+					
+					<div class="col-xs-6 col-md-6">
+						<input type = "text" id = "desc" name = "desc" class = "form-control" placeholder = "Descrição" autofocus></br>
+					</div>
+				</div>
 				
-				<input type = "text" id = "desc" name = "desc" class = "form-control" placeholder = "Descrição" autofocus></br>
+				<div class ="row">
+					<div class="col-xs-4 col-md-4">
+						<input type = "text" id = "un" name = "un" class = "form-control" placeholder = "Un" required autofocus></br>
+					</div>
 				
-				<input type = "text" id = "un" name = "un" class = "form-control" placeholder = "Un" required autofocus></br>
-				
-				<input type = "number" step = 0.01 id = "preco" name = "preco" class = "form-control" placeholder = "Preço" required autofocus></br>
-				
-				<input type = "text" id = "tipo" name = "tipo" class = "form-control" placeholder = "Tipo" required autofocus></br>
+					<div class="col-xs-4 col-md-4">
+						<input type = "number" step = 0.01 id = "preco" name = "preco" class = "form-control" placeholder = "Preço" required autofocus></br>
+					</div>
+					
+					<div class="col-xs-4 col-md-4">
+						<input type = "text" id = "tipo" name = "tipo" class = "form-control" placeholder = "Tipo" required autofocus></br>
+					</div>
+				</div>
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Cadastrar </button><br><br><br>
 				
 				<p class = "text-center text-danger">

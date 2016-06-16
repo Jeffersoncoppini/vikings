@@ -103,33 +103,69 @@
 		<div class = "container">
 			<form action = "inempbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Cadastro de Empresas</h2><br>
+				<div class ="row">
+					<div class="col-xs-6 col-md-6">
+						<input type = "text" id = "cnpj" name = "cnpj" class = "form-control" placeholder = "cnpj" required autofocus><br>
+					</div>
+					
+					<div class="col-xs-6 col-md-6">
+						<input type = "text" id = "ie" name = "ie" class = "form-control" placeholder = "ie" autofocus></br>
+					</div>
+				</div>
 				
-				<input type = "text" id = "cnpj" name = "cnpj" class = "form-control" placeholder = "cnpj" required autofocus><br>
+				<div class ="row">
+					<div class="col-xs-6 col-md-6">
+						<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
+					</div>
+					
+					<div class="col-xs-6 col-md-6">
+						<input type = "text" id = "fant" name = "fant" class = "form-control" placeholder = "nome fantasia" autofocus></br>
+					</div>
+				</div>
 				
-				<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
+				<div class ="row">
+					<div class="col-xs-6 col-md-6">
+						<input type = "tel" id = "tel" name = "tel" class = "form-control" placeholder = "telefone" required autofocus></br>
+					</div>
+					
+					<div class="col-xs-6 col-md-6">
+						<input type = "mail" id = "email" name = "email" class = "form-control" placeholder = "email" autofocus><br>
+					</div>
+				</div>
 				
-				<input type = "text" id = "fant" name = "fant" class = "form-control" placeholder = "nome fantasia" autofocus></br>
+				<div class ="row">
+					<div class="col-xs-8 col-md-8">
+						<input type = "text" id = "rua" name = "rua" class = "form-control" placeholder = "rua" required autofocus><br>
+					</div>
+					
+					<div class="col-xs-4 col-md-4">
+						<input type = "text" id = "bairro" name = "bairro" class = "form-control" placeholder = "bairro" required autofocus><br>
+					</div>
+				</div>
 				
-				<input type = "text" id = "ie" name = "ie" class = "form-control" placeholder = "ie" autofocus></br>
+				<div class ="row">
+					<div class="col-xs-4 col-md-4">
+						<input type = "text" id = "num" name = "num" class = "form-control" placeholder = "número" required autofocus><br>
+					</div>
+					
+					<div class="col-xs-4 col-md-4">
+						<input type = "text" id = "compl" name = "compl" class = "form-control" placeholder = "complemento" autofocus><br>
+					</div>
+					
+					<div class="col-xs-4 col-md-4">
+						<input type = "text" id = "cep" name = "cep" class = "form-control" placeholder = "cep" required autofocus><br>
+					</div>
+				</div>
 				
-				<input type = "tel" id = "tel" name = "tel" class = "form-control" placeholder = "telefone" required autofocus></br>
-		
-				<input type = "mail" id = "email" name = "email" class = "form-control" placeholder = "email" autofocus><br>
-				
-				<input type = "text" id = "rua" name = "rua" class = "form-control" placeholder = "rua" required autofocus><br>
-				
-				<input type = "text" id = "bairro" name = "bairro" class = "form-control" placeholder = "bairro" required autofocus><br>
-				
-				<input type = "text" id = "num" name = "num" class = "form-control" placeholder = "número" required autofocus><br>
-				
-				<input type = "text" id = "compl" name = "compl" class = "form-control" placeholder = "complemento" autofocus><br>
-				
-				<input type = "text" id = "cep" name = "cep" class = "form-control" placeholder = "cep" autofocus><br>
-				
-				<input type = "text" id = "cid" name = "cid" class = "form-control" placeholder = "cidade" autofocus><br>
-				
-				<input type = "text" id = "uf" name = "uf" class = "form-control" placeholder = "uf" autofocus><br>
-				
+				<div class ="row">
+					<div class="col-xs-8 col-md-8">
+						<input type = "text" id = "cid" name = "cid" class = "form-control" placeholder = "cidade" required autofocus><br>
+					</div>
+			
+					<div class="col-xs-4 col-md-4">
+						<input type = "text" id = "uf" name = "uf" class = "form-control" placeholder = "uf"  required autofocus><br>
+					</div>
+				</div>
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Cadastrar </button><br><br><br>
 				<p class = "text-center text-danger">
 			<?php

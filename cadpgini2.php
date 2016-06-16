@@ -103,14 +103,17 @@
 		<div class = "container">
 			<form action = "cadpginibanco2.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Selecione um Evento</h2><br>
+				<div class ="row">
 				<?php
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 					$resultado = pg_query($bdcon,"SELECT * FROM evento");
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["nomeevento"].' <input type="radio" name="evento" id="evento" value="'.$aux2["idevento"].'" class = "form-control" placeholde = "evento" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
+						echo '<div class="col-xs-6 col-md-6">
+								<label class = "text-center"> '.$aux2["nomeevento"].' </label><input type="radio" name="evento" id="evento" value="'.$aux2["idevento"].'" class = "form-control" placeholde = "evento" autofocus><br>&nbsp;&nbsp;&nbsp;&nbsp;
+							</div>';
 					}
 				?>
-				
+				</div>
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Encerrar </button><br><br><br>
 				
 				<p class = "text-center text-danger">

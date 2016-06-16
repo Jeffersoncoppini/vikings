@@ -103,9 +103,11 @@
 		<div class = "container">
 			<form action = "altempbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Alteração de empresas</h2><br>
-				<label for = "nome">Busca:</label>
-				<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
-				
+				<div class ="row">
+					<div class="col-xs-6 col-md-6">
+						<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
+					</div>
+				</div>
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Buscar </button>
 				
 				<br><br><p class = "text-center text-danger">
@@ -138,12 +140,16 @@
 			<?php
 				if(isset($_SESSION['existe'])){
 					echo'<form action = "altempbanco2.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
+					echo'<div class ="row">';
 					$busca = $_SESSION['existe'];
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 					$resultado = pg_query($bdcon,"SELECT * FROM empresa where rsocial like'".$busca."%'");
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["rsocial"].' <input type="radio" name="emp" id="emp" value="'.$aux2["cnpj"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
+						echo '<div class="col-xs-6 col-md-6">
+								<label class = "text-center"> '.$aux2["rsocial"].' </label><input type="radio" name="emp" id="emp" value="'.$aux2["cnpj"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;
+							</div>';
 					}
+					echo'</div>';
 					unset($_SESSION['existe']);
 					echo'<button type = "submit" class = "btn btn-lg btn-default btn-block"> Alterar</button>';
 					echo'</form>';
@@ -154,31 +160,67 @@
 					$resultado = pg_query($bdcon,"SELECT * from empresa where cnpj = '$busca'");
 					$aux2 = pg_fetch_assoc($resultado);
 					echo'<form action = "altempbanco3.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
-					echo'
-					<input type = "text" id = "nome" value = "'.$aux2["rsocial"].'" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
+					echo'<div class ="row">
+							<div class="col-xs-4 col-md-4">
+								<input type = "text" id = "nome" value = "'.$aux2["rsocial"].'" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
+							</div>
+						
+							<div class="col-xs-4 col-md-4">
+								<input type = "text" id = "fant" value = "'.$aux2["nomefant"].'" name = "fant" class = "form-control" placeholder = "nome fantasia" autofocus></br>
+							</div>
+							
+					
+							<div class="col-xs-4 col-md-4">
+								<input type = "text" id = "ie" value = "'.$aux2["ie"].'" name = "ie" class = "form-control" placeholder = "ie" autofocus></br>
+							</div>
+						</div>
+						
+						<div class ="row">
+							<div class="col-xs-6 col-md-6">
+								<input type = "tel" id = "tel" value = "'.$aux2["telefone"].'" name = "tel" class = "form-control" placeholder = "telefone" required autofocus></br>
+							</div>
+							
+							<div class="col-xs-6 col-md-6">
+								<input type = "mail" id = "email" value = "'.$aux2["email"].'" name = "email" class = "form-control" placeholder = "email" autofocus><br>
+							</div>
+						</div>
+						
+						<div class ="row">
+							<div class="col-xs-8 col-md-8">
+								<input type = "text" id = "rua" value = "'.$aux2["rua"].'" name = "rua" class = "form-control" placeholder = "rua" required autofocus><br>
+							</div>
+							
 				
-					<input type = "text" id = "fant" value = "'.$aux2["nomefant"].'" name = "fant" class = "form-control" placeholder = "nome fantasia" autofocus></br>
-				
-					<input type = "text" id = "ie" value = "'.$aux2["ie"].'" name = "ie" class = "form-control" placeholder = "ie" autofocus></br>
-				
-					<input type = "tel" id = "tel" value = "'.$aux2["telefone"].'" name = "tel" class = "form-control" placeholder = "telefone" required autofocus></br>
-		
-					<input type = "mail" id = "email" value = "'.$aux2["email"].'" name = "email" class = "form-control" placeholder = "email" autofocus><br>
-				
-					<input type = "text" id = "rua" value = "'.$aux2["rua"].'" name = "rua" class = "form-control" placeholder = "rua" required autofocus><br>
-				
-					<input type = "text" id = "bairro" value = "'.$aux2["bairro"].'" name = "bairro" class = "form-control" placeholder = "bairro" required autofocus><br>
-				
-					<input type = "text" id = "num" value = "'.$aux2["numero"].'" name = "num" class = "form-control" placeholder = "número" required autofocus><br>
-				
-					<input type = "text" id = "compl" value = "'.$aux2["complemento"].'" name = "compl" class = "form-control" placeholder = "complemento" autofocus><br>
-				
-					<input type = "text" id = "cep" value = "'.$aux2["cep"].'" name = "cep" class = "form-control" placeholder = "cep" autofocus><br>
-				
-					<input type = "text" id = "cid" value = "'.$aux2["cidade"].'" name = "cid" class = "form-control" placeholder = "cidade" autofocus><br>
-				
-					<input type = "text" id = "uf" value = "'.$aux2["uf"].'" name = "uf" class = "form-control" placeholder = "uf" autofocus><br>
-				
+							<div class="col-xs-4 col-md-4">
+								<input type = "text" id = "bairro" value = "'.$aux2["bairro"].'" name = "bairro" class = "form-control" placeholder = "bairro" required autofocus><br>
+							</div>
+						</div>
+						
+						<div class ="row">
+							<div class="col-xs-4 col-md-4">
+								<input type = "text" id = "num" value = "'.$aux2["numero"].'" name = "num" class = "form-control" placeholder = "número" required autofocus><br>
+							</div>
+							
+					
+							<div class="col-xs-4 col-md-4">
+								<input type = "text" id = "compl" value = "'.$aux2["complemento"].'" name = "compl" class = "form-control" placeholder = "complemento" autofocus><br>
+							</div>
+					
+							<div class="col-xs-4 col-md-4">
+								<input type = "text" id = "cep" value = "'.$aux2["cep"].'" name = "cep" class = "form-control" placeholder = "cep" autofocus><br>
+							</div>
+						</div>
+						
+						<div class ="row">
+							<div class="col-xs-6 col-md-6">
+								<input type = "text" id = "cid" value = "'.$aux2["cidade"].'" name = "cid" class = "form-control" placeholder = "cidade" autofocus><br>
+							</div>
+							
+						
+							<div class="col-xs-6 col-md-6">
+								<input type = "text" id = "uf" value = "'.$aux2["uf"].'" name = "uf" class = "form-control" placeholder = "uf" autofocus><br>
+							</div>
+						</div>
 					<button type = "submit" class = "btn btn-lg btn-default btn-block"> Alterar </button><br><br><br>
 				
 					

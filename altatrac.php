@@ -102,10 +102,12 @@
 		
 		<div class = "container">
 			<form action = "altatracbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
-				<h2 class = "form-login-heading">Alteração de atrações</h2><br>
-				<label for = "nome">Busca:</label>
-				<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
-				
+				<h2 class = "form-login-heading">Alteração de atrações</h2><br>				
+				<div class ="row">
+					<div class="col-xs-6 col-md-6">
+						<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
+					</div>
+				</div>
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Buscar </button>
 				
 				<br><br><p class = "text-center text-danger">
@@ -139,9 +141,13 @@
 					$busca = $_SESSION['existe'];
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 					$resultado = pg_query($bdcon,"SELECT * FROM atracao where nomeatracao like'".$busca."%'");
+					echo '<div class ="row">';
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["nomeatracao"].' <input type="radio" name="atrac" id="atrac" value="'.$aux2["idatracao"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
+						echo '<div class="col-xs-4 col-md-4">
+								<label class = "text-center"> '.$aux2["nomeatracao"].' </label><input type="radio" name="atrac" id="atrac" value="'.$aux2["idatracao"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;
+							</div>';
 					}
+					echo'</div>';
 					unset($_SESSION['existe']);
 					echo'<button type = "submit" class = "btn btn-lg btn-default btn-block"> Alterar</button>';
 					echo'</form>';
@@ -152,19 +158,26 @@
 					$resultado = pg_query($bdcon,"SELECT * from atracao where idatracao = '$busca'");
 					$aux2 = pg_fetch_assoc($resultado);
 					echo'<form action = "altatracbanc3.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
-					echo'<label for = "nome">Nome:</label>
-					<input type = "text" id = "nome" value ="'.$aux2["nomeatracao"].'" name = "nome" class = "form-control" placeholde = "nome" required autofocus><br>
-				
-					<label for = "email"> E-mail:</label>
-					<input type = "mail" id = "email" value ="'.$aux2["email"].'" name = "email" class = "form-control" placeholde = "email" autofocus></br>
-				
-					<label for = "telefone"> Telefone:</label>
-					<input type = "tel" id = "tel" value ="'.$aux2["telefone"].'" name = "tel" class = "form-control" placeholde = "tel" required autofocus></br>
-		
-					<label for = "tipo">Tipo:</label>
-					<input type = "text" id = "tipo" value="'.$aux2["tipo"].'" name = "tipo" class = "form-control" placeholde = "tipo" required autofocus><br>
-				
-					<button type = "submit" class = "btn btn-lg btn-default btn-block"> Alterar </button>
+					echo'<div class ="row">
+							<div class="col-xs-6 col-md-6">
+								<input type = "text" id = "nome" value ="'.$aux2["nomeatracao"].'" name = "nome" class = "form-control" placeholde = "nome" required autofocus><br>
+							</div>
+								
+							<div class="col-xs-4 col-md-4">
+								<input type = "text" id = "tipo" value="'.$aux2["tipo"].'" name = "tipo" class = "form-control" placeholde = "tipo" required autofocus><br>
+							</div>
+						</div>
+						
+						<div class ="row">
+							<div class="col-xs-6 col-md-6">
+								<input type = "mail" id = "email" value ="'.$aux2["email"].'" name = "email" class = "form-control" placeholde = "email" autofocus></br>
+							</div>
+							
+							<div class="col-xs-6 col-md-6">
+								<input type = "tel" id = "tel" value ="'.$aux2["telefone"].'" name = "tel" class = "form-control" placeholde = "tel" required autofocus></br>
+							</div>
+						</div>
+						<button type = "submit" class = "btn btn-lg btn-default btn-block"> Alterar </button>
 					
 					</form>';
 					

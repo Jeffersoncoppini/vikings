@@ -108,14 +108,28 @@
 		echo'<div class = "container">
 			<form action = "altperfilbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Alterar perfil</h2><br>
-	
-				<input type = "text" id = "tel" value = "'.$aux["telefone"].'"name = "tel" class = "form-control" placeholder = "Telefone" autofocus></br>
 				
-				<input type = "text" id = "email" value = "'.$aux["email"].'" name = "email" class = "form-control" placeholder = "Email" autofocus></br>
+				<div class ="row">
+					<div class="col-xs-4 col-md-4">
+						<input type = "text" id = "tel" value = "'.$aux["telefone"].'"name = "tel" class = "form-control" placeholder = "Telefone" autofocus></br>
+					</div>
+					
+
+					<div class="col-xs-8 col-md-8">
+						<input type = "text" id = "email" value = "'.$aux["email"].'" name = "email" class = "form-control" placeholder = "Email" autofocus></br>
+					</div>
+					
+				</div>
 				
-				<input type = "password" id = "senha" value = "'.$aux["senha"].'" name = "senha" class = "form-control" placeholder = "Digite a senha" required autofocus></br>
-				
-				<input type = "password" id = "senha2" value = "'.$aux["senha"].'" name = "senha2" class = "form-control" placeholder = "Digite novamente a senha" required autofocus></br>
+				<div class ="row">
+					<div class="col-xs-6 col-md-6">
+						<input type = "password" id = "senha" value = "'.$aux["senha"].'" name = "senha" class = "form-control" placeholder = "Digite a senha" required autofocus></br>
+					</div>
+					
+					<div class="col-xs-6 col-md-6">
+						<input type = "password" id = "senha2" value = "'.$aux["senha"].'" name = "senha2" class = "form-control" placeholder = "Digite novamente a senha" required autofocus></br>
+					</div>
+				</div>
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Alterar </button><br><br><br>
 				
 				<p class = "text-center text-danger">'

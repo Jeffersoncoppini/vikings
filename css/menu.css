@@ -32,14 +32,12 @@ body{
 }
 
 .form-login{
-	max-width: 350px;
+	max-width: 600px;
 }
 .form-login .btn{
 	max-width: 110px;
 	max-height:50px;
 	padding:15px;
-	margin: 0 auto;
 }
 h2{
-text-align:center;
 }

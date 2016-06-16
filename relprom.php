@@ -107,8 +107,12 @@
 				<h2 class = "form-login-heading">Promoções - Reletórios</h2><br>
 				
 				<label class = "text-center"> Relatório de todas as promoções
-				<input type="radio" name="prom" id="prom" value="todosprom" class = "form-control" autofocus><br>
-				</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<div class ="row">
+					<div class="col-xs-6 col-md-6">
+						<input type="radio" name="prom" id="prom" value="todosprom" class = "form-control" autofocus><br>
+						</label>&nbsp;&nbsp;&nbsp;&nbsp;
+					</div>
+				</div>
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Gerar </button>
 				
 			</form>

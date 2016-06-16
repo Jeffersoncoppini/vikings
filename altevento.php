@@ -103,9 +103,11 @@
 		<div class = "container">
 			<form action = "alteventobanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Alteração de eventos</h2><br>
-				<label for = "nome">Busca:</label>
-				<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
-				
+				<div class ="row">
+					<div class="col-xs-6 col-md-6">	
+						<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
+					</div>
+				</div>	
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Buscar </button>
 				
 				<br><br><p class = "text-center text-danger">
@@ -139,9 +141,13 @@
 					$busca = $_SESSION['existe'];
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 					$resultado = pg_query($bdcon,"SELECT * FROM evento where nomeevento like'".$busca."%'");
+					echo'<div class ="row">';
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<label class = "text-center"> '.$aux2["nomeevento"].' - '.$aux2["dataevento"].' <input type="radio" name="evento" id="evento" value="'.$aux2["idevento"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;';
-					}
+						echo '<div class="col-xs-6 col-md-6">	
+								<label class = "text-center"> '.$aux2["nomeevento"].' - '.$aux2["dataevento"].' </label><input type="radio" name="evento" id="evento" value="'.$aux2["idevento"].'" class = "form-control" autofocus><br>&nbsp;&nbsp;&nbsp;&nbsp;
+							</div>';
+					}	
+					echo'</div>';
 					unset($_SESSION['existe']);
 					echo'<button type = "submit" class = "btn btn-lg btn-default btn-block"> Alterar</button>';
 					echo'</form>';
@@ -152,11 +158,23 @@
 					$resultado = pg_query($bdcon,"SELECT * from evento where idevento = '$busca'");
 					$aux2 = pg_fetch_assoc($resultado);
 					echo'<form action = "alteventobanco3.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
-					echo'<input type = "text" value = "'.$aux2["nomeevento"].'" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
-				
-					<input type = "time" value = "'.$aux2["hora"].'" id = "hora" name = "hora" class = "form-control" placeholder = "hora"required autofocus></br>
-				
-					<input type = "date" value = "'.$aux2["dataevento"].'" id = "data" name = "data" class = "form-control" placeholder = "data" required autofocus></br>
+					echo'<div class ="row">
+							<div class="col-xs-6 col-md-6">	
+								<input type = "text" value = "'.$aux2["nomeevento"].'" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
+							</div>
+						</div>
+						
+						<div class ="row">
+							<div class="col-xs-6 col-md-6">	
+								<label for = "hora" > Hora: </label>
+								<input type = "time" value = "'.$aux2["hora"].'" id = "hora" name = "hora" class = "form-control" placeholder = "hora"required autofocus></br>
+							</div>
+							
+							<div class="col-xs-6 col-md-6">	
+								<label for = "data" > Data: </label>
+								<input type = "date" value = "'.$aux2["dataevento"].'" id = "data" name = "data" class = "form-control" placeholder = "data" required autofocus></br>
+							</div>
+						</div>
 					<button type = "submit" class = "btn btn-lg btn-default btn-block"> Alterar </button>
 					
 					</form>';

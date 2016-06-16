@@ -103,10 +103,14 @@
 		<div class = "container">
 			<form action = "relprodbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Produtos - Reletórios</h2><br>
+				<div class ="row">
+					<div class="col-xs-6 col-md-6">
+						<label class = "text-center"> Relatório de todos os produtos
+						<input type="radio" name="prod" id="prod" value="todosprod" class = "form-control" autofocus><br>
+						</label>&nbsp;&nbsp;&nbsp;&nbsp;
+					</div>
+				</div>
 				
-				<label class = "text-center"> Relatório de todos os produtos
-				<input type="radio" name="prod" id="prod" value="todosprod" class = "form-control" autofocus><br>
-				</label>&nbsp;&nbsp;&nbsp;&nbsp;
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Gerar </button>
 				
 			</form>
