@@ -109,7 +109,7 @@
 					$resultado = pg_query($bdcon,"SELECT * FROM promocao");
 					while($aux2 = pg_fetch_assoc($resultado)){
 						
-						echo '<div class="col-xs-5 col-md-5">
+						echo '<div class="col-xs-10 col-sm-6 col-md-5 col-lg-5 col-xl-5">
 								<label class = "text-center"> '.$aux2["nomepromo"].' <input type="radio" name="promo" id="promo" value="'.$aux2	["nomepromo"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;
 							</div>';
 					}
@@ -131,6 +131,16 @@
 		</p> 	
 			</form>
 		</div>
+		
+		<footer> <!-- Aqui e a area do footer -->
+			<div class="container">
+				<div class ="row">
+					<div class="hidden-xs hidden-sm col-md-12 col-lg-12 col-xl-12">	
+						<br>Vikings Tabernas<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456
+					</div>		
+				</div>
+			</div>
+		</footer>
 		
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

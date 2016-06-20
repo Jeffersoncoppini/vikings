@@ -104,7 +104,7 @@
 			<form action = "altprodbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Alteração de produtos</h2><br>
 				<div class ="row">
-					<div class="col-xs-6 col-md-6">
+					<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 						<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
 					</div>
 				</div>
@@ -147,7 +147,7 @@
 					while($aux2 = pg_fetch_assoc($resultado)){
 						
 						echo '
-								<div class="col-xs-4 col-md-4">
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
 									<label class = "text-center"> '.$aux2["codproduto"].' - '.$aux2["nome"].'</label><input type="radio" name="prod" id="emp" value="'.$aux2["codproduto"].'" class = "form-control" autofocus>&nbsp;&nbsp;&nbsp;&nbsp;
 								</div>';
 								
@@ -166,24 +166,24 @@
 					echo'<form action = "altprodbanc3.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
 					echo'<h2 class = "form-login-heading">Alteracao de produtos</h2><br>
 					<div class ="row">
-						<div class="col-xs-6 col-md-6">
+						<div class="col-xs-10 col-sm-10 col-md-6 col-lg-6 col-xl-6">
 							<input type = "text" id = "nome" value = "'.$aux2["nome"].'" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
 						</div>
 						
-						<div class="col-xs-6 col-md-6">
+						<div class="col-xs-10 col-sm-10 col-md-6 col-lg-6 col-xl-6">
 							<input type = "text" id = "desc" value = "'.$aux2["descricao"].'" name = "desc" class = "form-control" placeholder = "Descrição" autofocus></br>
 						</div>
 					</div>
 					<div class ="row">
-						<div class="col-xs-4 col-md-4">
+						<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
 							<input type = "text" id = "un" value = "'.$aux2["un"].'" name = "un" class = "form-control" placeholder = "un" required autofocus></br>
 						</div>
 						
-						<div class="col-xs-4 col-md-4">
+						<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
 							<input type = "number" step = 0.01 id = "preco" value = "'.$aux2["preco"].'" name = "preco" class = "form-control" placeholder = "Preço" required autofocus></br>
 						</div>
 						
-						<div class="col-xs-4 col-md-4">
+						<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
 							<input type = "text" id = "tipo" value = "'.$aux2["tipo"].'" name = "tipo" class = "form-control" placeholder = "tipo" required autofocus><br>
 						</div>
 					</div>
@@ -194,6 +194,15 @@
 				}
 			?>
 		</div>
+		<footer> <!-- Aqui e a area do footer -->
+			<div class="container">
+				<div class ="row">
+					<div class="hidden-xs hidden-sm col-md-12 col-lg-12 col-xl-12">	
+						<br>Vikings Tabernas<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456
+					</div>		
+				</div>
+			</div>
+		</footer>
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		

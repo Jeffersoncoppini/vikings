@@ -39,11 +39,10 @@
 					<ul class="nav navbar-nav">
 						<li class="active"></li>
 						<li><a href="index.php">Home</a></li>
-						<li><a href="#">Cardápio</a></li>
-						<li><a href="#">Promoções</a></li>
-						<li><a href="#">Reservas</a></li>
-						<li><a href="#">Eventos</a></li>
-						<li><a href="#">Contato</a></li>
+						<li><a href="cardapio.php">Cardápio</a></li>
+						<li><a href="promocoes.php">Promoções</a></li>
+						<li><a href="reservas.php">Reservas</a></li>
+						<li><a href="eventos.php">Agenda</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="adm.php">Acesso Administrador</a></li>
@@ -55,10 +54,16 @@
 		<div class = "container">
 			<form action = "entradas.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Acesso administrador</h2><br>
-				<input type = "text" id = "usuario" name = "usuario" class = "form-control" placeholder = "usuario" required autofocus><br>
-				
-				<input type = "password" id = "senha" name = "senha" class = "form-control" placeholder = "senha" required autofocus></br>
-				
+				<div class ="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+						<input type = "text" id = "usuario" name = "usuario" class = "form-control" placeholder = "usuario" required autofocus><br>
+					</div>
+				</div>
+				<div class ="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+						<input type = "password" id = "senha" name = "senha" class = "form-control" placeholder = "senha" required autofocus></br>
+					</div>
+				</div>
 				<button type = "submit" class = "btn btn-block btn-default"> Entrar </button><br>
 			</form>
 			<p class = "text-center text-danger">
@@ -73,20 +78,8 @@
 		<footer> <!-- Aqui e a area do footer -->
 			<div class="container">
 				<div class ="row">
-					<div class="col-xs-4 col-md-4">
-						<a>
-							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3551.816965525351!2d-52.61780724903035!3d-27.099066607446623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e4b69e666506cd%3A0x60bae2452eec1837!2sR.+Benjamin+Constant%2C+51+-+Centro%2C+Chapec%C3%B3+-+SC!5e0!3m2!1spt-BR!2sbr!4v1466012875181"></iframe>	
-						</a>	
-					</div>
-					<div class="col-xs-3 col-md-3">	
+					<div class="hidden-xs hidden-sm col-md-12 col-lg-12 col-xl-12">	
 						<br>Vikings Tabernas<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456
-					</div>
-					<div class="col-xs-1 col-md-1">
-						<br><a href = "https://www.facebook.com/Vikings-Taberna-1676370405939228/?fref=ts"><img src="imagens/face.jpg" class = "img-responsive"></img></a>	
-					</div>
-					
-					<div class="col-xs-3 col-md-3">
-						<br><br><br>Visite nossa página no Facebook
 					</div>
 					
 					

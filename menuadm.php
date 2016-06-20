@@ -100,16 +100,25 @@
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
+		<div class ="container">
+			<?php
+				$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+				 $resultado = pg_query($bdcon,"SELECT * FROM reserva where datar = current_date");
+				echo '<div class ="row"><h2>Reservas do dia</h2>';
+					while($aux2 = pg_fetch_assoc($resultado)){
+						echo '<div class="col-xs-10 col-sm-10 col-md-5 col-lg-5 col-xl-5">
+							<h3>Nome: '.$aux2["nome"].'<br>CPF: '.$aux2["cpf"].'<br> Hora: '.$aux2["hora"].'<br> Lugares: '.$aux2["qtpessoas"].'</h3>
+						</div>';
+					}
+				echo'</div>';
+			?>
+		</div>
 		<footer> <!-- Aqui e a area do footer -->
 			<div class="container">
-				<div class="copyright">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12">
-								<p>&copy; Todos os direitos reservados.</p>
-							</div>
-						</div>
-					</div>
+				<div class ="row">
+					<div class="hidden-xs hidden-sm col-md-12 col-lg-12 col-xl-12">	
+						<br>Vikings Tabernas<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456
+					</div>		
 				</div>
 			</div>
 		</footer>

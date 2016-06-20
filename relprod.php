@@ -104,18 +104,15 @@
 			<form action = "relprodbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Produtos - Reletórios</h2><br>
 				<div class ="row">
-					<div class="col-xs-6 col-md-6">
+					<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 						<label class = "text-center"> Relatório de todos os produtos
 						<input type="radio" name="prod" id="prod" value="todosprod" class = "form-control" autofocus><br>
 						</label>&nbsp;&nbsp;&nbsp;&nbsp;
 					</div>
 				</div>
 				
-				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Gerar </button>
-				
-			</form>
-		</div>
-		<p class = "text-center">
+				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Gerar </button><br><br>
+			<p class = "text-center">
 			<?php
 				if(isset($_SESSION['erro'])){
 					echo $_SESSION['erro'];
@@ -128,6 +125,20 @@
 			
 			?>
 		</p>
+
+				
+			</form>
+		</div>
+		
+		<footer> <!-- Aqui e a area do footer -->
+			<div class="container">
+				<div class ="row">
+					<div class="hidden-xs hidden-sm col-md-12 col-lg-12 col-xl-12">	
+						<br>Vikings Tabernas<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456
+					</div>		
+				</div>
+			</div>
+		</footer>
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		

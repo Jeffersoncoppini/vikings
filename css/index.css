@@ -1,21 +1,30 @@
-	
+		
 body{
 background-color:#000000;
 padding:20px;
+color:#ffffff;
 }
-.carousel-inner > .item > img {
+.carousel-inner > .item > a > img {
     position-relative;
     min-width: 100%;
-    height: 500px; 
-    padding:30px;
+    height: 500px;
+    
+}
+
+.carousel-inner > .item > span {
+	top:-500px;
+	position:relative;
+	left:10%;
+	font-size:40px;
+	color:#ffffff;
     
 }
 footer{
-	bottom:0;
-	width:100%;
 	font-size: 15px;
 	padding: 30px;
-	left: 0;	
+	left: 0;
+	color:#ffffff;
+	position:absolute;
 }
 
 .row{

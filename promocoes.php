@@ -35,7 +35,7 @@
 						<li><a href="cardapio.php">Cardápio</a></li>
 						<li><a href="promocoes.php">Promoções</a></li>
 						<li><a href="reservas.php">Reservas</a></li>
-						<li><a href="eventos.php">Eventos</a></li>
+						<li><a href="eventos.php">Agenda</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="adm.php">Acesso Administrador</a></li>
@@ -51,11 +51,11 @@
 					$resultado = pg_query($bdcon,"SELECT *from promocao");
 					while($aux2 = pg_fetch_assoc($resultado)){
 						echo '<div class ="row">
-								<div class="col-xs-10 col-sm-10 col-md-4">
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
 									<img src = "'.$aux2["imagem"].'" class = "img-responsive">
 								</div>
 								
-								<div class="hidden-xs hidden-sm col-md-4">
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
 									<h3>'.$aux2["nomepromo"].'</h3>
 									<h3>Preço: R$ '.$aux2["precopromo"].'</h3>
 									<h3>Valido até: ';
@@ -63,7 +63,7 @@
 									 echo'</h3>
 								</div>';
 								$resultadob = pg_query($bdcon,"SELECT *from promocao_produto natural join produto where promocao_produto.nomepromo = '$aux2[nomepromo]'");
-								echo'<div class="hidden-xs hidden-sm col-md-4">
+								echo'<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
 									<h3> Composição:<br><br>';
 									while($aux = pg_fetch_assoc($resultadob)){
 										echo $aux["nome"];
@@ -78,19 +78,14 @@
 		<footer> <!-- Aqui e a area do footer -->
 			<div class="container">
 				<div class ="row">
-					<div class="hidden-xs hidden-sm col-md-4">
-						<a>
-							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3551.816965525351!2d-52.61780724903035!3d-27.099066607446623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e4b69e666506cd%3A0x60bae2452eec1837!2sR.+Benjamin+Constant%2C+51+-+Centro%2C+Chapec%C3%B3+-+SC!5e0!3m2!1spt-BR!2sbr!4v1466012875181"></iframe>	
-						</a>	
-					</div>
-					<div class="hidden-xs hidden-sm col-md-3">	
+					<div class="hidden-xs col-md-6 col-lg-6 hidden-sm col-xl-6">	
 						<br>Vikings Tabernas<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456
 					</div>
-					<div class="hidden-xs hidden-sm col-md-1">
+					<div class="hidden-xs col-md-1 col-lg-1 hidden-sm col-xl-1">	
 						<br><a href = "https://www.facebook.com/Vikings-Taberna-1676370405939228/?fref=ts"><img src="imagens/face.jpg" class = "img-responsive"></img></a>	
 					</div>
 					
-					<div class="hidden-xs hidden-sm col-md-3">
+					<div class="hidden-xs hidden-sm col-md-5 col-lg-5 col-xl-5">	
 						<br><br><br>Visite nossa página no Facebook
 					</div>
 					
