@@ -27,6 +27,14 @@ footer{
 	background: inherit;
 }
 
+.navbar-brand > img{
+	margin-top: -13px;
+	margin-left: 10px;
+	height: 45px;
+	width: 28,35px;
+
+}
+
 body{
 	background-color:#000000;
 	padding:20px;
