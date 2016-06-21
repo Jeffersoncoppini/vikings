@@ -104,7 +104,7 @@
 			<form action = "alteventobanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Alteração de eventos</h2><br>
 				<div class ="row">
-					<div class="col-xs-6 col-md-6">	
+					<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 						<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
 					</div>
 				</div>	
@@ -143,7 +143,7 @@
 					$resultado = pg_query($bdcon,"SELECT * FROM evento where nomeevento like'".$busca."%'");
 					echo'<div class ="row">';
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<div class="col-xs-6 col-md-6">	
+						echo '<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">	
 								<label class = "text-center"> '.$aux2["nomeevento"].' - '.$aux2["dataevento"].' </label><input type="radio" name="evento" id="evento" value="'.$aux2["idevento"].'" class = "form-control" autofocus><br>&nbsp;&nbsp;&nbsp;&nbsp;
 							</div>';
 					}	
@@ -159,18 +159,18 @@
 					$aux2 = pg_fetch_assoc($resultado);
 					echo'<form action = "alteventobanco3.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
 					echo'<div class ="row">
-							<div class="col-xs-6 col-md-6">	
+							<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">	
 								<input type = "text" value = "'.$aux2["nomeevento"].'" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
 							</div>
 						</div>
 						
 						<div class ="row">
-							<div class="col-xs-6 col-md-6">	
+							<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">	
 								<label for = "hora" > Hora: </label>
 								<input type = "time" value = "'.$aux2["hora"].'" id = "hora" name = "hora" class = "form-control" placeholder = "hora"required autofocus></br>
 							</div>
 							
-							<div class="col-xs-6 col-md-6">	
+							<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">	
 								<label for = "data" > Data: </label>
 								<input type = "date" value = "'.$aux2["dataevento"].'" id = "data" name = "data" class = "form-control" placeholder = "data" required autofocus></br>
 							</div>
@@ -182,7 +182,15 @@
 				}
 			?>
 		</div>
-		
+		<footer> <!-- Aqui e a area do footer -->
+			<div class="container">
+				<div class ="row">
+					<div class="hidden-xs hidden-sm col-md-12 col-lg-12 col-xl-12">	
+						<br>Vikings Tabernas<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456
+					</div>		
+				</div>
+			</div>
+		</footer>
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		

@@ -104,22 +104,22 @@
 			<form action = "cadeventobanco.php" method = "POST" accept-charset = "utf-8" class = "form-login" enctype ="multipart/form-data">
 				<h2 class = "form-login-heading">Cadastro de Eventos</h2><br>
 				<div class ="row">
-					<div class="col-xs-6 col-md-6">
+					<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 						<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
 					</div>
 				</div>
 				<div class ="row">
-					<div class="col-xs-4 col-md-4">
+					<div class="col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xl-4">
 						<label for = "hora"> hora:</label>
 						<input type = "time" id = "hora" name = "hora" class = "form-control" placeholder = "hora"required autofocus></br>
 					</div>
 					
-					<div class="col-xs-4 col-md-4">
+					<div class="col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xl-4">
 						<label for = "data"> Data:</label>
 						<input type = "date" id = "data" name = "data" class = "form-control" placeholder = "data" required autofocus></br>
 					</div>
 					
-					<div class="col-xs-4 col-md-4">
+					<div class="col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xl-4">
 						<label for = "imagem"> Selecione uma imagem:</label>
 						<input type="file" name="arquivo" id="imagem" class = "form-control" placeholder = "arquivo" autofocus><br><br>
 					</div>
@@ -132,7 +132,7 @@
 					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 					$resultado = pg_query($bdcon,"SELECT * FROM atracao");
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<div class="col-xs-4 col-md-4">
+						echo '<div class="col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xl-4">
 								<label class = "text-center"> '.$aux2["nomeatracao"].' </label><input type="checkbox" name="atrac[]" id="atrac" value="'.$aux2["idatracao"].'" class = "form-control" placeholde = "atrac" autofocus><br><br>
 							</div>';
 					}
@@ -154,7 +154,15 @@
 		</p>
 			</form>
 		</div>
-		
+		<footer> <!-- Aqui e a area do footer -->
+			<div class="container">
+				<div class ="row">
+					<div class="hidden-xs hidden-sm col-md-12 col-lg-12 col-xl-12">	
+						<br>Vikings Tabernas<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456
+					</div>		
+				</div>
+			</div>
+		</footer>
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		

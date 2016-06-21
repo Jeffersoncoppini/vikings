@@ -67,8 +67,8 @@
 					
 						echo'<div class="item active"><a href = "promocoes.php"><img src = "'.$resp["imagem"].'" class = "img-responsive" alt = "Promoção"></a><span>Promoções</span></div>
 						<div class="item"><a href = "eventos.php"><img src = "'.$resp2["imagem"].'" class = "img-responsive" alt = "Evento"></a><span>Eventos</span></div>
-						<div class="item"><a href = "reservas.php"><img src = "imagens/votacao.jpg" class = "img-responsive" alt = "Votação"></a><span>Votação</span></div>
-						<div class="item"><a href = "reservas.php"><img src = "imagens/reserva.jpg" class = "img-responsive" alt = "Reserva"></a><span>Reservas</span></div>';
+						<div class="item"><a href = "reservas.php"><img src = "imagens/votacao.jpg" class = "img-responsive" alt = "Votação"></a></div>
+						<div class="item"><a href = "reservas.php"><img src = "imagens/anuncio.jpg" class = "img-responsive" alt = "Reserva"></a></div>';
 						?>
 					</div>
 

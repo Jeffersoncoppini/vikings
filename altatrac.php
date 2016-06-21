@@ -104,7 +104,7 @@
 			<form action = "altatracbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Alteração de atrações</h2><br>				
 				<div class ="row">
-					<div class="col-xs-6 col-md-6">
+					<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 						<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
 					</div>
 				</div>
@@ -143,7 +143,7 @@
 					$resultado = pg_query($bdcon,"SELECT * FROM atracao where nomeatracao like'".$busca."%'");
 					echo '<div class ="row">';
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<div class="col-xs-4 col-md-4">
+						echo '<div class="col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xl-4">
 								<label class = "text-center"> '.$aux2["nomeatracao"].' </label><input type="radio" name="atrac" id="atrac" value="'.$aux2["idatracao"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;
 							</div>';
 					}
@@ -159,21 +159,21 @@
 					$aux2 = pg_fetch_assoc($resultado);
 					echo'<form action = "altatracbanc3.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
 					echo'<div class ="row">
-							<div class="col-xs-6 col-md-6">
+							<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 								<input type = "text" id = "nome" value ="'.$aux2["nomeatracao"].'" name = "nome" class = "form-control" placeholde = "nome" required autofocus><br>
 							</div>
 								
-							<div class="col-xs-4 col-md-4">
+							<div class="col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xl-4">
 								<input type = "text" id = "tipo" value="'.$aux2["tipo"].'" name = "tipo" class = "form-control" placeholde = "tipo" required autofocus><br>
 							</div>
 						</div>
 						
 						<div class ="row">
-							<div class="col-xs-6 col-md-6">
+							<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 								<input type = "mail" id = "email" value ="'.$aux2["email"].'" name = "email" class = "form-control" placeholde = "email" autofocus></br>
 							</div>
 							
-							<div class="col-xs-6 col-md-6">
+							<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 								<input type = "tel" id = "tel" value ="'.$aux2["telefone"].'" name = "tel" class = "form-control" placeholde = "tel" required autofocus></br>
 							</div>
 						</div>
@@ -184,6 +184,16 @@
 				}
 			?>
 		</div>
+		
+		<footer> <!-- Aqui e a area do footer -->
+			<div class="container">
+				<div class ="row">
+					<div class="hidden-xs hidden-sm col-md-12 col-lg-12 col-xl-12">	
+						<br>Vikings Tabernas<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456
+					</div>		
+				</div>
+			</div>
+		</footer>
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		

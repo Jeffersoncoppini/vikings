@@ -105,27 +105,27 @@
 				<h2 class = "form-login-heading">Cadastro de Usuário Promoter</h2><br>
 				
 				<div class ="row">
-					<div class="col-xs-4 col-md-4">
+					<div class="col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xl-4">
 						<input type = "text" id = "login" name = "login" class = "form-control" placeholder = "Login" required autofocus><br>
 					</div>
 					
 				
-					<div class="col-xs-4 col-md-4">
+					<div class="col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xl-4">
 						<input type = "text" id = "tel" name = "tel" class = "form-control" placeholder = "Telefone" autofocus></br>
 					</div>
 					
 				
-					<div class="col-xs-4 col-md-4">
+					<div class="col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xl-4">
 						<input type = "text" id = "email" name = "email" class = "form-control" placeholder = "Email" autofocus></br>
 					</div>
 				</div>
 				
 				<div class ="row">
-					<div class="col-xs-6 col-md-6">	
+					<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">	
 						<input type = "password" id = "senha" name = "senha" class = "form-control" placeholder = "Digite a senha" required autofocus></br>
 					</div>
 					
-					<div class="col-xs-6 col-md-6">
+					<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">	
 						<input type = "password" id = "senha2" name = "senha2" class = "form-control" placeholder = "Digite novamente a senha" required autofocus></br>
 					</div>
 				</div>
@@ -152,7 +152,15 @@
 		</p>
 			</form>
 		</div>
-		
+		<footer> <!-- Aqui e a area do footer -->
+			<div class="container">
+				<div class ="row">
+					<div class="hidden-xs hidden-sm col-md-12 col-lg-12 col-xl-12">	
+						<br>Vikings Tabernas<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456
+					</div>		
+				</div>
+			</div>
+		</footer>
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		
