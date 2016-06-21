@@ -3,6 +3,14 @@
 	padding:15px;
 }
 
+.navbar-brand > img{
+	margin-top: -13px;
+	margin-left: 10px;
+	height: 45px;
+	width: 28,35px;
+
+}
+
 .form-login .btn{
 	max-width: 110px;
 	max-height:50px;
