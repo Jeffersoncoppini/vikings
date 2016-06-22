@@ -111,7 +111,7 @@
 					</div>
 				</div>
 				
-				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Gerar </button><br><br>
+				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Gerar </button><br><br><br>
 			<p class = "text-center">
 			<?php
 				if(isset($_SESSION['erro'])){
@@ -132,6 +132,7 @@
 		
 		<footer> <!-- Aqui e a area do footer -->
 			<div class="container">
+			<br><br><br><br>
 				<div class ="row">
 					<div class="hidden-xs hidden-sm col-md-12 col-lg-12 col-xl-12">	
 						<br>Vikings Taberna<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456

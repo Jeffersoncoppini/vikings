@@ -106,14 +106,15 @@
 			<form action = "relprombanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				<h2 class = "form-login-heading">Promoções - Reletórios</h2><br>
 				
-				<label class = "text-center"> Relatório de todas as promoções
+				
 				<div class ="row">
 					<div class="col-xs-10 col-sm-10 col-md-6 col-lg-6 col-xl-6">
+					<label class = "text-center"> Relatório de todas as promoções
 						<input type="radio" name="prom" id="prom" value="todosprom" class = "form-control" autofocus><br>
 						</label>&nbsp;&nbsp;&nbsp;&nbsp;
 					</div>
 				</div>
-				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Gerar </button>
+				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Gerar </button><br><br><br>
 				
 			</form>
 		</div>
@@ -133,6 +134,7 @@
 		
 		<footer> <!-- Aqui e a area do footer -->
 			<div class="container">
+			<br><br><br><br>
 				<div class ="row">
 					<div class="hidden-xs hidden-sm col-md-12 col-lg-12 col-xl-12">	
 						<br>Vikings Taberna<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456

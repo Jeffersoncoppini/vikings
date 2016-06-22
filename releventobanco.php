@@ -17,15 +17,16 @@ if($eventos == "todoseventos"){
 		$pdf->Open();
 		$pdf->AddPage();
 		$pdf->SetFont('Arial','',12);
+		$pdf->Image('imagens/logo.png',15,2,5,5);
 		$pdf->Cell(0,5,utf8_decode('RELATÓRIO DE EVENTOS'),0,1,'F');
-		$pdf->Cell(5,1,'Nome',1,0,'C');
-		$pdf->Cell(5,1,'Data',1,0,'C');
-		$pdf->Cell(5,1,'HORA',1,1,'C');
+		$pdf->Cell(6,1,'Nome',1,0,'C');
+		$pdf->Cell(6,1,'Data',1,0,'C');
+		$pdf->Cell(6,1,'HORA',1,1,'C');
 		
 		while($vetor = pg_fetch_assoc($resultado)){
-			$pdf->Cell(5,1,utf8_decode($vetor['nomeevento']),1,0,'C');
-			$pdf->Cell(5,1,utf8_decode($vetor['dataevento']),1,0,'C');
-			$pdf->Cell(5,1,utf8_decode($vetor['hora']),1,1,'C');
+			$pdf->Cell(6,1,utf8_decode($vetor['nomeevento']),1,0,'C');
+			$pdf->Cell(6,1,utf8_decode($vetor['dataevento']),1,0,'C');
+			$pdf->Cell(6,1,utf8_decode($vetor['hora']),1,1,'C');
 		}
 		$pdf->Output();	
 		$_SESSION['existe2'] = "Relatório gerado com sucesso!";
