@@ -141,14 +141,14 @@
 				if(isset($_SESSION['existe'])){
 					echo'<form action = "altprodbanco2.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
 					$busca = $_SESSION['existe'];
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT * FROM produto where nome like'".$busca."%'");
 					echo'<div class ="row">';
 					while($aux2 = pg_fetch_assoc($resultado)){
 						
 						echo '
-								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
-									<label class = "text-center"> '.$aux2["codproduto"].' - '.$aux2["nome"].'</label><input type="radio" name="prod" id="emp" value="'.$aux2["codproduto"].'" class = "form-control" autofocus>&nbsp;&nbsp;&nbsp;&nbsp;
+								<div class="col-xs-10 col-sm-10 col-md-6 col-lg-6 col-xl-6">
+									<label class = "text-center"> '.$aux2["codproduto"].' - '.$aux2["nome"].'</label><input type="radio" name="prod" id="emp" value="'.$aux2["codproduto"].'" class = "form-control" autofocus><br>
 								</div>';
 								
 					
@@ -160,7 +160,7 @@
 				}
 				if(isset($_SESSION['existe2'])){
 					$busca = $_SESSION['existe2'];
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT * from produto where codproduto = '$busca'");
 					$aux2 = pg_fetch_assoc($resultado);
 					echo'<form action = "altprodbanc3.php" method = "POST" accept-charset = "utf-8" class = "form-login">';

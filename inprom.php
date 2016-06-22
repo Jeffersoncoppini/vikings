@@ -138,7 +138,7 @@
 				<h4><label for = "selprod"> Selecione os produtos:</label></h4><br>
 				
 				<?php
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT produto.nome,produto.codproduto FROM produto");
 					echo '<div class ="row">';
 					while($aux2 = pg_fetch_assoc($resultado)){

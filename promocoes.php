@@ -47,7 +47,7 @@
 		<div class="container">
 			<h2>Promoções</h2>
 				<?php
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT *from promocao");
 					while($aux2 = pg_fetch_assoc($resultado)){
 						echo '<div class ="row">

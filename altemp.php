@@ -142,7 +142,7 @@
 					echo'<form action = "altempbanco2.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
 					echo'<div class ="row">';
 					$busca = $_SESSION['existe'];
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT * FROM empresa where rsocial like'".$busca."%'");
 					while($aux2 = pg_fetch_assoc($resultado)){
 						echo '<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">
@@ -156,7 +156,7 @@
 				}
 				if(isset($_SESSION['existe2'])){
 					$busca = $_SESSION['existe2'];
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT * from empresa where cnpj = '$busca'");
 					$aux2 = pg_fetch_assoc($resultado);
 					echo'<form action = "altempbanco3.php" method = "POST" accept-charset = "utf-8" class = "form-login">';

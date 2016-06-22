@@ -102,7 +102,7 @@
 		</nav>
 		<div class ="container">
 			<?php
-				$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+				include("conexao.php");
 				 $resultado = pg_query($bdcon,"SELECT * FROM reserva where datar = current_date");
 				echo '<div class ="row"><h2>Reservas do dia</h2>';
 					while($aux2 = pg_fetch_assoc($resultado)){

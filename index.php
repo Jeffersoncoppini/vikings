@@ -58,8 +58,8 @@
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner" role ="listbox">
 						<?php
+							include("conexao.php");
 							session_start();
-							$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 							$resultado = pg_query($bdcon,"SELECT * FROM promocao where pgini = 1");
 							$resultadob = pg_query($bdcon,"SELECT * FROM evento where pgini = 1");
 							
@@ -83,7 +83,7 @@
 		<div class="container">
 			<div class ="row">
 			<?php
-				$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+				include("conexao.php");
 				$resultado = pg_query($bdcon,"SELECT * FROM anuncio join empresa on anuncio.cnpj = empresa.cnpj");
 				while($aux2 = pg_fetch_assoc($resultado)){
 						echo '<div class="hidden-xs col-md-4 col-lg-4 hidden-sm col-xl-4">

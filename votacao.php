@@ -50,7 +50,7 @@
 			<form action = "votacaobanco.php" method = "POST" accept-charset = "utf-8" class = "form-login" enctype ="multipart/form-data">
 				
 				<?php
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT *from atracao");
 					while($aux2 = pg_fetch_assoc($resultado)){
 						echo '<div class ="row">

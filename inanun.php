@@ -112,7 +112,7 @@
 				<h4><label for = "imagem"> Selecione a Empresa:</label></h4><br>
 				<div class ="row">
 				<?php
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT empresa.cnpj,empresa.rsocial FROM empresa");
 					while($aux2 = pg_fetch_assoc($resultado)){
 						echo '<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">

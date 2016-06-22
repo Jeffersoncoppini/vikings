@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+include("conexao.php");
 $uploaddir = 'imagens/';
 $imagem = $uploaddir . basename($_FILES['imagem']['name']);
 
@@ -17,7 +18,7 @@ $desc = $_POST["des"];
 $precopromo = $_POST["precopromo"];
 $prod = $_POST["prod"];
 
-$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+
 $resultado = pg_query($bdcon,"INSERT INTO promocao(nomepromo,datainicio,descricao,precopromo,imagem,datafim,pgini) values('$nome','$datai','$desc','$precopromo','$imagem','$dataf', 0)");
 
 foreach($prod as $valor){

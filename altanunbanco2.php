@@ -1,8 +1,9 @@
 <?php
 
 session_start();
+include("conexao.php");
 $anun = $_POST["anun"];
-$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+
 $resultado = pg_query($bdcon,"SELECT * from anuncio where codanuncio = '$anun'");
 
 $aux = pg_affected_rows($resultado);

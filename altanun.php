@@ -140,7 +140,7 @@
 				if(isset($_SESSION['existe'])){
 					echo'<form action = "altanunbanco2.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
 					$busca = $_SESSION['existe'];
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT * FROM anuncio where descricao like'".$busca."%'");
 					echo'<div class ="row">';
 					while($aux2 = pg_fetch_assoc($resultado)){
@@ -155,7 +155,7 @@
 				}
 				if(isset($_SESSION['existe2'])){
 					$busca = $_SESSION['existe2'];
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT * from anuncio where codanuncio = '$busca'");
 					$aux2 = pg_fetch_assoc($resultado);
 					echo'<form action = "altanunbanco3.php" method = "POST" accept-charset = "utf-8" class = "form-login">';

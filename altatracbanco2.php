@@ -1,8 +1,10 @@
 <?php
 
 session_start();
+include("conexao.php");
+
 $atrac = $_POST["atrac"];
-$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+
 $resultado = pg_query($bdcon,"SELECT * from atracao where idatracao = '$atrac'");
 
 $aux = pg_affected_rows($resultado);

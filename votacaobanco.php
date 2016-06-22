@@ -2,11 +2,10 @@
 <?php
 
 session_start();
+include("conexao.php");
 
 $atracao = $_POST["atracao"];
-$ip = $_SERVER['REMOTE_ADDR'];
 
-$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 $resultado = pg_query($bdcon,"SELECT atracao.qtvotos from atracao where atracao.idatracao = '$atracao'");
 $aux = pg_fetch_assoc($resultado);
 $aux2 = $aux["qtvotos"];

@@ -11,13 +11,13 @@ if (!move_uploaded_file($_FILES['arquivo']['tmp_name'], $imagem)) {
 } 
 
 session_start();
+include("conexao.php");
 
 $nome = $_POST["nome"];
 $hora = $_POST["hora"];
 $data = $_POST["data"];
 $atrac = $_POST["atrac"];
 
-$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 $resultado = pg_query($bdcon,"INSERT INTO evento(dataevento,nomeevento,imagem,hora,pgini) values('$data','$nome','$imagem','$hora',0)");
 $resultadob = pg_query($bdcon,"SELECT max(idevento) FROM evento");
 $aux = pg_fetch_assoc($resultadob);

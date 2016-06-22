@@ -2,9 +2,11 @@
 define('FPDF_FONTPATH','font/');
 require('fpdf/fpdf.php');
 session_start();
+include("conexao.php");
+
 $emp = $_POST["emp"];
 if($emp == "todosemp"){
-	$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+	include("conexao.php");
 	$resultado = pg_query($bdcon,"SELECT * from empresa");
 	$aux = pg_affected_rows($resultado);
 	if($aux == 0){

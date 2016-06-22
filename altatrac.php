@@ -139,7 +139,7 @@
 				if(isset($_SESSION['existe'])){
 					echo'<form action = "altatracbanco2.php" method = "POST" accept-charset = "utf-8" class = "form-login">';
 					$busca = $_SESSION['existe'];
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT * FROM atracao where nomeatracao like'".$busca."%'");
 					echo '<div class ="row">';
 					while($aux2 = pg_fetch_assoc($resultado)){
@@ -149,12 +149,12 @@
 					}
 					echo'</div>';
 					unset($_SESSION['existe']);
-					echo'<button type = "submit" class = "btn btn-lg btn-default btn-block"> Alterar</button>';
+					echo'<button type = "submit" class = "btn btn-lg btn-default btn-block"> Alterar</button><br><br>';
 					echo'</form>';
 				}
 				if(isset($_SESSION['existe2'])){
 					$busca = $_SESSION['existe2'];
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT * from atracao where idatracao = '$busca'");
 					$aux2 = pg_fetch_assoc($resultado);
 					echo'<form action = "altatracbanc3.php" method = "POST" accept-charset = "utf-8" class = "form-login">';

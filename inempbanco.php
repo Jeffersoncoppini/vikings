@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+include("conexao.php");
 
 $cnpj = $_POST["cnpj"];
 $nome = $_POST["nome"];
@@ -16,7 +17,6 @@ $cep = $_POST["cep"];
 $cid = $_POST["cid"];
 $uf = $_POST["uf"];
 
-$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 $resultado = pg_query($bdcon,"INSERT INTO empresa(cnpj,rsocial,nomefant,ie,telefone,email,rua,bairro,numero,complemento,cep,cidade,uf) values('$cnpj','$nome','$fant','$ie','$tel','$email','$rua','$bairro','$num','$compl','$cep','$cid','$uf')");
 
 foreach($atrac as $valor){

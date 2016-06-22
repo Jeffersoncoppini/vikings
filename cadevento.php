@@ -129,7 +129,7 @@
 				<h4><label for = "atracoes"> Selecione as atrações:</label></h4><br>
 				<div class ="row">
 				<?php
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT * FROM atracao");
 					while($aux2 = pg_fetch_assoc($resultado)){
 						echo '<div class="col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xl-4">

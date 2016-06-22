@@ -46,7 +46,7 @@
 		<div class="container">
 			<h2>Cardápio</h2><br><br>
 				<?php
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Porção'");
 					echo '<h3>Porções<h3><br><br>';
 					while($aux2 = pg_fetch_assoc($resultado)){
@@ -64,7 +64,7 @@
 				?>
 				<br><br>
 				<?php
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Prato'");
 					echo '<h3>Pratos<h3><br><br>';
 					while($aux2 = pg_fetch_assoc($resultado)){
@@ -83,7 +83,7 @@
 				
 				<br><br>
 				<?php
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Lata'");
 					echo '<h3>Bebidas-Lata<h3><br><br>';
 					while($aux2 = pg_fetch_assoc($resultado)){
@@ -102,7 +102,7 @@
 				
 				<br><br>
 				<?php
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Suco'");
 					echo '<h3>Sucos<h3><br><br>';
 					while($aux2 = pg_fetch_assoc($resultado)){
@@ -121,7 +121,7 @@
 				
 				<br><br>
 				<?php
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Lata'");
 					echo '<h3>Bebidas-Lata<h3><br><br>';
 					while($aux2 = pg_fetch_assoc($resultado)){
@@ -140,7 +140,7 @@
 				
 				<br><br>
 				<?php
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Dose'");
 					echo '<h3>Doses<h3><br><br>';
 					while($aux2 = pg_fetch_assoc($resultado)){
@@ -159,7 +159,7 @@
 				
 				<br><br>
 				<?php
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Garrafa'");
 					echo '<h3>Garrafas<h3><br><br>';
 					while($aux2 = pg_fetch_assoc($resultado)){
@@ -178,7 +178,7 @@
 				
 				<br><br>
 				<?php
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Cerveja'");
 					echo '<h3>Cerveja<h3><br><br>';
 					while($aux2 = pg_fetch_assoc($resultado)){
@@ -197,7 +197,7 @@
 				
 				<br><br>
 				<?php
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Chopp'");
 					echo '<h3>Chopps<h3><br><br>';
 					while($aux2 = pg_fetch_assoc($resultado)){
@@ -216,7 +216,7 @@
 				
 				<br><br>
 				<?php
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Sobremesa'");
 					echo '<h3>Sobremesas<h3><br><br>';
 					while($aux2 = pg_fetch_assoc($resultado)){

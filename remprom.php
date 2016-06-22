@@ -105,7 +105,7 @@
 				<h2 class = "form-login-heading">Remover promoções</h2><br>
 				<div class ="row">
 				<?php
-					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT * FROM promocao");
 					while($aux2 = pg_fetch_assoc($resultado)){
 						

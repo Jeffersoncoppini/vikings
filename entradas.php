@@ -1,10 +1,11 @@
 <?php
 
 session_start();
+include("conexao.php");
+
 $usuario = $_POST["usuario"];
 $senha = $_POST["senha"];
 
-$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 $resultado = pg_query($bdcon,"SELECT usuario.login,usuario.senha,usuario.adm FROM usuario WHERE usuario.login = '$usuario' AND usuario.senha = '$senha'");
 
 $aux = pg_affected_rows($resultado);

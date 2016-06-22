@@ -101,7 +101,7 @@
 		</nav>
 		<?php
 		$usuario = $_SESSION['usuario'];
-		$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+		include("conexao.php");
 		$resultado = pg_query($bdcon,"SELECT * from usuario where login = '$usuario'");
 		$aux = pg_fetch_assoc($resultado);
 		

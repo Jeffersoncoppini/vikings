@@ -1,11 +1,10 @@
 <?php
 
 session_start();
+include("conexao.php");
 
 $evento = $_POST["evento"];
 
-
-$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
 $resultado = pg_query($bdcon,"DELETE FROM evento_atracao where idevento = '$evento'");
 $resultadob = pg_query($bdcon,"DELETE FROM evento where idevento = '$evento'");
 
