@@ -32,7 +32,9 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="menuadm.php">Vikings Taberna</a>
+					<?php
+					echo'<a class="navbar-brand" href="menuadm.php">'.$_SESSION['usuario'].'</a>'
+					?>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->

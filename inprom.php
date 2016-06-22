@@ -31,7 +31,9 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="menuadm.php">Vikings Taberna</a>
+					<?php
+					echo'<a class="navbar-brand" href="menuadm.php">'.$_SESSION['usuario'].'</a>'
+					?>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -170,7 +172,7 @@
 			<div class="container">
 				<div class ="row">
 					<div class="hidden-xs hidden-sm col-md-12 col-lg-12 col-xl-12">	
-						<br>Vikings Taberna<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456
+						<h5><br>Vikings Taberna<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456</h5>
 					</div>		
 				</div>
 			</div>

@@ -10,14 +10,14 @@
   }
 }
 footer{
-	bottom:0;
 	font-size: 15px;
 	padding: 30px;
-	left: 0;
 	color:#ffffff;
-	position:static;
-	text-align:center;
+	position:fixed;
+	bottom:0;
 }
+
+
 .inverse-dropdown li a{
 	color: #9d9d9d;
 }
@@ -49,5 +49,10 @@ body{
 	padding:15px;
 }
 h2,h3{
+color:#ffffff;
+}
+
+h5{
+float:right;
 color:#ffffff;
 }
