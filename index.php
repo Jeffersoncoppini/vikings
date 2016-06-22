@@ -24,7 +24,8 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Vikings Taberna</a>
+					<div class ='logo'><a class="navbar-brand" href="#"><img src = "imagens/logo.png" class = "img-responsive" alt = "logo"></a></div>
+		
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -65,10 +66,10 @@
 							$resp = pg_fetch_assoc($resultado);
 							$resp2 = pg_fetch_assoc($resultadob);
 					
-						echo'<div class="item active"><a href = "promocoes.php"><img src = "'.$resp["imagem"].'" class = "img-responsive" alt = "Promoção"></a><span>Promoções</span></div>
-						<div class="item"><a href = "eventos.php"><img src = "'.$resp2["imagem"].'" class = "img-responsive" alt = "Evento"></a><span>Eventos</span></div>
-						<div class="item"><a href = "reservas.php"><img src = "imagens/votacao.jpg" class = "img-responsive" alt = "Votação"></a></div>
-						<div class="item"><a href = "reservas.php"><img src = "imagens/anuncio.jpg" class = "img-responsive" alt = "Reserva"></a></div>';
+						echo'<div class="item active"><a href = "promocoes.php"><img src = "'.$resp["imagem"].'" class = "img-responsive" alt = "Promoção"></a></div>
+						<div class="item"><a href = "eventos.php"><img src = "'.$resp2["imagem"].'" class = "img-responsive" alt = "Evento"></a></div>
+						<div class="item"><a href = "votacao.php"><img src = "imagens/votacao.jpg" class = "img-responsive" alt = "Votação"></a></div>
+						<div class="item"><a href = "reservas.php"><img src = "imagens/reserva.png" class = "img-responsive" alt = "Reserva"></a></div>';
 						?>
 					</div>
 

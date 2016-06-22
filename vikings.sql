@@ -1,5 +1,6 @@
 CREATE TABLE reserva(
-	cpf varchar(20) NOT NULL constraint pk_reserva primary key,
+	idreserva serial  NOT NULL constraint pk_reserva primary key,
+	cpf varchar(20) NOT NULL,
 	datar date NOT NULL,
 	nome varchar(50) NOT NULL,
 	qtpessoas integer NOT NULL,
@@ -53,15 +54,15 @@ CREATE TABLE promocao(
 
 CREATE TABLE produto(
 	codproduto serial NOT NULL primary key,
-	nome varchar(30) NOT NULL,
-	descricao varchar(30),
+	nome varchar(50) NOT NULL,
+	descricao varchar(50),
 	un varchar(5) NOT NULL,
 	preco numeric NOT NULL,
 	tipo varchar(30) NOT NULL
 );
 
 CREATE TABLE promocao_produto(
-	nomepromo varchar(30) NOT NULL,
+	nomepromo varchar(50) NOT NULL,
 	codproduto integer NOT NULL,
 	constraint pk_promocao_produto primary key(nomepromo,codproduto),
 	constraint fk_promocao_promocao_produto foreign key(nomepromo) references promocao(nomepromo),

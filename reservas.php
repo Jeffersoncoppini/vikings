@@ -45,7 +45,7 @@
 		</nav>
 		
 		<div class "container">
-			<form action = "reservasbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login" enctype ="multipart/form-data">
+			<form class = "form-login" method = "post" action = "reservasbanco.php">
 			
 				<h2 class = "form-login-heading">Faça sua reserva</h2><br>
 			
@@ -75,24 +75,24 @@
 					</div>
 				</div>
 				
-				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Reservar	 </button><br>
-				
+				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Reservar</button><br>
+			
 				<p class = "text-center text-danger">
 			<?php
-				session_start();
-				if(isset($_SESSION['ok'])){
-					echo $_SESSION['ok'];
-					unset($_SESSION['ok']);
-				}
+			session_start();
 				if(isset($_SESSION['errores'])){
 					echo $_SESSION['errores'];
 					unset($_SESSION['errores']);
 				}
+				if(isset($_SESSION['ok'])){
+					echo $_SESSION['ok'];
+					unset($_SESSION['ok']);
+				}
 			
 			?>
 		</p>
-			
 			</form>
+			
 		</div>
 		<footer> <!-- Aqui e a area do footer -->
 			<div class="container">
@@ -114,5 +114,6 @@
 		</footer>
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
 	</body>
 </html>

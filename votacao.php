@@ -24,7 +24,8 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Vikings Taberna</a>
+					<div class ='logo'><a class="navbar-brand" href="#"><img src = "imagens/logo.png" class = "img-responsive" alt = "logo"></a></div>
+			
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -45,7 +46,7 @@
 		</nav>
 		
 		<div class="container">
-			<h2>Vote na sua atração favorita!</h2>
+			<h2>Vote na sua atração favorita!</h2><br><br>
 			<form action = "votacaobanco.php" method = "POST" accept-charset = "utf-8" class = "form-login" enctype ="multipart/form-data">
 				
 				<?php
@@ -57,6 +58,14 @@
 								
 									<label class = "text-center"> '.$aux2["nomeatracao"].'</label> <input type="radio" name="atracao" id="atracao" value="'.$aux2["idatracao"].'" class = "form-control" placeholde = "emp" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;		
 								</div>
+								
+								<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">';
+									$soma = pg_query($bdcon,"SELECT sum(qtvotos) from atracao");
+									$soma2 = pg_fetch_assoc($soma);
+									$aux = $soma2["sum"];
+									$porcent = (100/$aux )* $aux2["qtvotos"];					
+									echo '<h3>'.$porcent.' %<h3>';		
+								echo'</div>
 							</div>';
 					}	
 				?>

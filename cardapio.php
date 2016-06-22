@@ -43,10 +43,203 @@
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
+		<div class="container">
+			<h2>Cardápio</h2><br><br>
+				<?php
+					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Porção'");
+					echo '<h3>Porções<h3><br><br>';
+					while($aux2 = pg_fetch_assoc($resultado)){
+						echo '
+							<div class ="row">	
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+									<h5>'.$aux2["nome"].'</h5>
+								</div>
+								
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+									<h5>'.$aux2["preco"].'</h5>
+								</div>
+							</div>';
+					}
+				?>
+				<br><br>
+				<?php
+					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Prato'");
+					echo '<h3>Pratos<h3><br><br>';
+					while($aux2 = pg_fetch_assoc($resultado)){
+						echo '
+							<div class ="row">	
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+									<h5>'.$aux2["nome"].'</h5>
+								</div>
+								
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+									<h5>'.$aux2["preco"].'</h5>
+								</div>
+							</div>';
+					}
+				?>
+				
+				<br><br>
+				<?php
+					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Lata'");
+					echo '<h3>Bebidas-Lata<h3><br><br>';
+					while($aux2 = pg_fetch_assoc($resultado)){
+						echo '
+							<div class ="row">	
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+									<h5>'.$aux2["nome"].'</h5>
+								</div>
+								
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+									<h5>'.$aux2["preco"].'</h5>
+								</div>
+							</div>';
+					}
+				?>
+				
+				<br><br>
+				<?php
+					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Suco'");
+					echo '<h3>Sucos<h3><br><br>';
+					while($aux2 = pg_fetch_assoc($resultado)){
+						echo '
+							<div class ="row">	
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+									<h5>'.$aux2["nome"].'</h5>
+								</div>
+								
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+									<h5>'.$aux2["preco"].'</h5>
+								</div>
+							</div>';
+					}
+				?>
+				
+				<br><br>
+				<?php
+					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Lata'");
+					echo '<h3>Bebidas-Lata<h3><br><br>';
+					while($aux2 = pg_fetch_assoc($resultado)){
+						echo '
+							<div class ="row">	
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+									<h5>'.$aux2["nome"].'</h5>
+								</div>
+								
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+									<h5>'.$aux2["preco"].'</h5>
+								</div>
+							</div>';
+					}
+				?>
+				
+				<br><br>
+				<?php
+					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Dose'");
+					echo '<h3>Doses<h3><br><br>';
+					while($aux2 = pg_fetch_assoc($resultado)){
+						echo '
+							<div class ="row">	
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+									<h5>'.$aux2["nome"].'</h5>
+								</div>
+								
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+									<h5>'.$aux2["preco"].'</h5>
+								</div>
+							</div>';
+					}
+				?>
+				
+				<br><br>
+				<?php
+					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Garrafa'");
+					echo '<h3>Garrafas<h3><br><br>';
+					while($aux2 = pg_fetch_assoc($resultado)){
+						echo '
+							<div class ="row">	
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+									<h5>'.$aux2["nome"].'</h5>
+								</div>
+								
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+									<h5>'.$aux2["preco"].'</h5>
+								</div>
+							</div>';
+					}
+				?>
+				
+				<br><br>
+				<?php
+					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Cerveja'");
+					echo '<h3>Cerveja<h3><br><br>';
+					while($aux2 = pg_fetch_assoc($resultado)){
+						echo '
+							<div class ="row">	
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+									<h5>'.$aux2["nome"].'</h5>
+								</div>
+								
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+									<h5>'.$aux2["preco"].'</h5>
+								</div>
+							</div>';
+					}
+				?>
+				
+				<br><br>
+				<?php
+					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Chopp'");
+					echo '<h3>Chopps<h3><br><br>';
+					while($aux2 = pg_fetch_assoc($resultado)){
+						echo '
+							<div class ="row">	
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+									<h5>'.$aux2["nome"].'</h5>
+								</div>
+								
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+									<h5>'.$aux2["preco"].'</h5>
+								</div>
+							</div>';
+					}
+				?>
+				
+				<br><br>
+				<?php
+					$bdcon = pg_connect("dbname=Vikings port=5432 user=postgres password=jukajeffe") or die("erro de conexão");
+					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Sobremesa'");
+					echo '<h3>Sobremesas<h3><br><br>';
+					while($aux2 = pg_fetch_assoc($resultado)){
+						echo '
+							<div class ="row">	
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+									<h5>'.$aux2["nome"].'</h5>
+								</div>
+								
+								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+									<h5>'.$aux2["preco"].'</h5>
+								</div>
+							</div>';
+					}
+				?>
+
+		</div>
+		
+		
 		<footer> <!-- Aqui e a area do footer -->
 			<div class="container">
 				<div class ="row">
-					<div class="hidden-xs col-md-6 col-lg-6 hidden-sm col-xl-6">	
+					<div class="hidden-xs col-md-6 col-lg-6 hidden-sm col-xl-6">
 						<br>Vikings Tabernas<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456
 					</div>
 					<div class="hidden-xs col-md-1 col-lg-1 hidden-sm col-xl-1">	
