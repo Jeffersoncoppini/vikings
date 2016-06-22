@@ -106,16 +106,16 @@
 			<form action = "rematracbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login" enctype ="multipart/form-data">
 				<h2 class = "form-login-heading">Remover atrações</h2><br>
 				<div class ="row">
-					
-				<?php
+					<?php
 					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT * FROM atracao");
 					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-								<label class = "text-center"> '.$aux2["nomeatracao"].' </label><input type="radio" name="atrac" id="atrac" value="'.$aux2	["idatracao"].'" class = "form-control" autofocus><br>&nbsp;&nbsp;&nbsp;&nbsp;
+						echo '<div class="col-xs-10 col-sm-4 col-md-5 col-lg-5 col-xl-5">
+								<label class = "text-center"> '.$aux2["nomeatracao"].'<input type="radio" name="atrac" id="atrac" value="'.$aux2["idatracao"].'" class = "form-control" autofocus><br></label>&nbsp;&nbsp;&nbsp;&nbsp;
 							</div>';
 					}
 				?>
+				</div>
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Remover</button><br><br><br>
 				<p class = "text-center text-danger">
 			<?php
@@ -138,7 +138,7 @@
 			<br><br>
 				<div class ="row">
 					<div class="hidden-xs hidden-sm col-md-12 col-lg-12 col-xl-12">	
-						<br>Vikings Taberna<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456
+						<h5><br>Vikings Taberna<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456</h5>
 					</div>		
 				</div>
 			</div>

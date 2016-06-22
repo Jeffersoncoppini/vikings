@@ -56,7 +56,9 @@
 								
 								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
 									<h3>'.$aux2["nomeevento"].'</h3>
-									<h3>Data: '.$aux2["dataevento"].'</h3>
+									<h3>Data: ';
+									 echo date('d/m/Y', strtotime($aux2["dataevento"]));
+									 echo'</h3>
 									<h3>Hora: '.$aux2["hora"].'</h3>
 								</div>';
 								$resultadob = pg_query($bdcon,"SELECT *from evento_atracao natural join atracao where evento_atracao.idevento = '$aux2[idevento]'");
