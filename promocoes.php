@@ -79,7 +79,7 @@
 			<div class="container">
 				<div class ="row">
 					<div class="hidden-xs col-md-6 col-lg-6 hidden-sm col-xl-6">	
-						<br>Vikings Tabernas<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456
+						<br>Vikings Taberna<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456
 					</div>
 					<div class="hidden-xs col-md-1 col-lg-1 hidden-sm col-xl-1">	
 						<br><a href = "https://www.facebook.com/Vikings-Taberna-1676370405939228/?fref=ts"><img src="imagens/face.jpg" class = "img-responsive"></img></a>	
