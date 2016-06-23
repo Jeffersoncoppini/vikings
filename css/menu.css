@@ -13,7 +13,7 @@ footer{
 	font-size: 15px;
 	padding: 30px;
 	color:#ffffff;
-	position:fixed;
+	position:absolute;
 	bottom:0;
 }
 

@@ -12,6 +12,22 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 		<meta charset = "utf-8">
 		<link rel = "stylesheet" type = "text/css" href="css/menu.css">
+		<script type ="text/javascript" src = "js/jquery.js"></script>
+		<script type ="text/javascript" src = "js/jquery.form	.js"></script>
+		
+		<script type ="text/javascript">
+			$(document).ready(function(){
+				$("#ff").axaxForm({
+					target: '.res',
+					success: function(retorno){
+						$(".res").html(retorno);
+						$(".res").show();
+					}
+				});
+			
+			});
+		</script>
+		
 	</head>
 	<body>
 		<?php
@@ -103,7 +119,7 @@
 		</nav>
 		
 		<div class = "container">
-			<form action = "cadprodbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
+			<form id = "ff" action = "cadprodbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
 				
 				<h2 class = "form-login-heading">Cadastro de produtos</h2><br>
 				<div class ="row">
@@ -131,21 +147,25 @@
 				</div>
 				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Cadastrar </button><br><br><br>
 				
-				<p class = "text-center text-danger">
-			<?php
-				if(isset($_SESSION['ok'])){
-					echo $_SESSION['ok'];
-					unset($_SESSION['ok']);
-				}
-				if(isset($_SESSION['errocad'])){
-					echo $_SESSION['errocad'];
-					unset($_SESSION['errocad']);
-				}
 			
-			?>
-		</p>
 			</form>
 		</div>
+			<div class = "res">
+					<p class = "text-center text-danger">
+					<?php
+						if(isset($_SESSION['ok'])){
+							echo $_SESSION['ok'];
+							unset($_SESSION['ok']);
+						}
+						if(isset($_SESSION['errocad'])){
+							echo $_SESSION['errocad'];
+							unset($_SESSION['errocad']);
+						}
+			
+					?>
+				
+					</p>
+				</div>
 			<footer> <!-- Aqui e a area do footer -->
 			<div class="container">
 			<br><br>

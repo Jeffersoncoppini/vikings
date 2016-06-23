@@ -21,4 +21,5 @@ else{
 	$_SESSION['errocad'] = "Verifique os dados digitados!";
 	header("Location:cadprod.php");
 }
+
 ?>
