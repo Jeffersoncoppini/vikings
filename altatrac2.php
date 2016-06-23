@@ -153,12 +153,10 @@
 				}
 			?>
 		</div>
-		
 		<footer> <!-- Aqui e a area do footer -->
 			<div class="container">
-			<br><br><br><br>
 				<div class ="row">
-					<div class="hidden-xs hidden-sm col-md-12 col-lg-12 col-xl-12">	
+					<div class="hidden-xs hidden-sm col-md-3 col-lg-3 col-xl-3">	
 						<h5><br>Vikings Taberna<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456<h5>
 					</div>		
 				</div>
