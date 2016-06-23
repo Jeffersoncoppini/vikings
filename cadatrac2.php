@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang = "pt-br">
 	<head>
-		<title>Vikings Taberna-Menu adm</title>
+		<title>Vikings Taberna-Cadastro de atrações</title>
 		<!-- Última versão CSS compilada e minificada -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -10,14 +10,14 @@
 
 		<!-- Última versão JavaScript compilada e minificada -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-		<link rel = "stylesheet" type = "text/css" href="css/menu.css">
 		<meta charset = "utf-8">
+		<link rel = "stylesheet" type = "text/css" href="css/menu.css">
 	</head>
 	<body>
 		<?php
 			session_start();
 			ob_start();
-			if(($_SESSION['usuario'] == "")  || ($_SESSION['senha'] =="")){
+			if(($_SESSION['usuario'] == "")  || ($_SESSION['senha'] == "")){
 				header("Location: adm.php");
 			}
 		?>
@@ -68,8 +68,50 @@
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
+		
+		<div class = "container">
+			<form action = "cadatracbanco.php" method = "POST" accept-charset = "utf-8" class = "form-login">
+				<h2 class = "form-login-heading">Cadastro de Atrações</h2><br>
+				<div class ="row">
+					<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+						<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
+					</div>
+					
+					<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+						<input type = "text" id = "tipo" name = "tipo" class = "form-control" placeholder = "tipo" required autofocus><br>
+					</div>
+				</div>
+				
+				<div class ="row">
+					<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+						<input type = "mail" id = "email" name = "email" class = "form-control" placeholder = "email" autofocus></br>
+					</div>
+					
+					<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+						<input type = "tel" id = "tel" name = "tel" class = "form-control" placeholder = "telefone" required autofocus></br>
+					</div>
+			
+				</div>
+				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Cadastrar </button><br><br><br>
+				<p class = "text-center text-danger">
+			<?php
+				if(isset($_SESSION['okatrac'])){
+					echo $_SESSION['okatrac'];
+					unset($_SESSION['okatrac']);
+				}
+				if(isset($_SESSION['errocadatrac'])){
+					echo $_SESSION['errocadatrac'];
+					unset($_SESSION['errocadatrac']);
+				}
+			
+			?>
+		</p>
+			</form>
+		</div>
+		
 		<footer> <!-- Aqui e a area do footer -->
 			<div class="container">
+			<br><br>
 				<div class ="row">
 					<div class="hidden-xs hidden-sm col-md-12 col-lg-12 col-xl-12">	
 						<h5><br>Vikings Taberna<br> Rua Benjamin Constant 51-D<br>Chapecó-SC<br>Fone:(49) 3304-3456</h5>
@@ -77,7 +119,6 @@
 				</div>
 			</div>
 		</footer>
-		
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		

@@ -13,8 +13,9 @@ footer{
 	font-size: 15px;
 	padding: 30px;
 	color:#ffffff;
-	position:absolute;
+	position:relative;
 	bottom:0;
+	text-align:center;
 }
 
 
@@ -53,6 +54,5 @@ color:#ffffff;
 }
 
 h5{
-float:right;
 color:#ffffff;
 }

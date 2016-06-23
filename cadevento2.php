@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang = "pt-br">
 	<head>
-		<title>Vikings Taberna-Menu adm</title>
+		<title>Vikings Taberna-Cadastro de eventos</title>
 		<!-- Última versão CSS compilada e minificada -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -10,14 +10,14 @@
 
 		<!-- Última versão JavaScript compilada e minificada -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-		<link rel = "stylesheet" type = "text/css" href="css/menu.css">
 		<meta charset = "utf-8">
+		<link rel = "stylesheet" type = "text/css" href="css/menu.css">
 	</head>
 	<body>
 		<?php
 			session_start();
 			ob_start();
-			if(($_SESSION['usuario'] == "")  || ($_SESSION['senha'] =="")){
+			if(($_SESSION['usuario'] == "")  || ($_SESSION['senha'] == "")){
 				header("Location: adm.php");
 			}
 		?>
@@ -68,6 +68,61 @@
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
+		
+		<div class = "container">
+			<form action = "cadeventobanco.php" method = "POST" accept-charset = "utf-8" class = "form-login" enctype ="multipart/form-data">
+				<h2 class = "form-login-heading">Cadastro de Eventos</h2><br>
+				<div class ="row">
+					<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+						<input type = "text" id = "nome" name = "nome" class = "form-control" placeholder = "nome" required autofocus><br>
+					</div>
+				</div>
+				<div class ="row">
+					<div class="col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+						<label for = "hora"> hora:</label>
+						<input type = "time" id = "hora" name = "hora" class = "form-control" placeholder = "hora"required autofocus></br>
+					</div>
+					
+					<div class="col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+						<label for = "data"> Data:</label>
+						<input type = "date" id = "data" name = "data" class = "form-control" placeholder = "data" required autofocus></br>
+					</div>
+					
+					<div class="col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+						<label for = "imagem"> Selecione uma imagem:</label>
+						<input type="file" name="arquivo" id="imagem" class = "form-control" placeholder = "arquivo" autofocus><br><br>
+					</div>
+				</div>
+				
+				
+				<h4><label for = "atracoes"> Selecione as atrações:</label></h4><br>
+				<div class ="row">
+				<?php
+					include("conexao.php");
+					$resultado = pg_query($bdcon,"SELECT * FROM atracao");
+					while($aux2 = pg_fetch_assoc($resultado)){
+						echo '<div class="col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+								<label class = "text-center"> '.$aux2["nomeatracao"].' </label><input type="checkbox" name="atrac[]" id="atrac" value="'.$aux2["idatracao"].'" class = "form-control" placeholde = "atrac" autofocus><br><br>
+							</div>';
+					}
+				?>
+				</div>
+				<button type = "submit" class = "btn btn-lg btn-default btn-block"> Cadastrar</button><br><br><br>
+				<p class = "text-center text-danger">
+			<?php
+				if(isset($_SESSION['okevento'])){
+					echo $_SESSION['okevento'];
+					unset($_SESSION['okevento']);
+				}
+				if(isset($_SESSION['errocadevento'])){
+					echo $_SESSION['errocadevento'];
+					unset($_SESSION['errocadevento']);
+				}
+			
+			?>
+		</p>
+			</form>
+		</div>
 		<footer> <!-- Aqui e a area do footer -->
 			<div class="container">
 				<div class ="row">
@@ -77,7 +132,6 @@
 				</div>
 			</div>
 		</footer>
-		
 		<script src = "http://code.jquery.com/jquery-latest.js"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		
