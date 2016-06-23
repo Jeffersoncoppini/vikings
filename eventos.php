@@ -47,7 +47,7 @@
 			<h2>Agenda</h2>
 				<?php
 					include("conexao.php");
-					$resultado = pg_query($bdcon,"SELECT *from evento");
+					$resultado = pg_query($bdcon,"SELECT *from evento ORDER BY dataevento");
 					while($aux2 = pg_fetch_assoc($resultado)){
 						echo '<div class ="row">
 								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">

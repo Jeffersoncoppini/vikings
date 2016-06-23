@@ -51,7 +51,7 @@
 				
 				<?php
 					include("conexao.php");
-					$resultado = pg_query($bdcon,"SELECT *from atracao");
+					$resultado = pg_query($bdcon,"SELECT *from atracao ORDER BY qtvotos");
 					while($aux2 = pg_fetch_assoc($resultado)){
 						echo '<div class ="row">
 								<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">
