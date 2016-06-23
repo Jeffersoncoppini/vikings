@@ -120,25 +120,7 @@
 				?>
 				
 				<br><br>
-				<?php
-					include("conexao.php");
-					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Lata'");
-					echo '<h3>Bebidas-Lata<h3><br><br>';
-					while($aux2 = pg_fetch_assoc($resultado)){
-						echo '
-							<div class ="row">	
-								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
-									<h5>'.$aux2["nome"].'</h5>
-								</div>
-								
-								<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
-									<h5>'.$aux2["preco"].'</h5>
-								</div>
-							</div>';
-					}
-				?>
-				
-				<br><br>
+
 				<?php
 					include("conexao.php");
 					$resultado = pg_query($bdcon,"SELECT *from produto where tipo = 'Dose'");

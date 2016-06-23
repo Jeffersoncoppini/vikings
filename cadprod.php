@@ -17,7 +17,7 @@
 		
 		<script type ="text/javascript">
 			$(document).ready(function(){
-				$("#ff").axaxForm({
+				$("#ff").ajaxForm({
 					target: '.res',
 					success: function(retorno){
 						$(".res").html(retorno);
